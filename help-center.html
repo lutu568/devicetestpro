@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Help Center - Audio Testing Tools</title>
+    <meta name="description" content="Get help with using our audio testing tools including microphone tests, speaker tests, and more. Find answers to common questions and troubleshooting guides.">
+    <link rel="canonical" href="https://microphone-test-tool.com/help-center.html">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/speaker-test.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="alternate" hreflang="zh-CN" href="https://microphone-test-tool.com/zh/help-center.html">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">
+                <h1><i class="fas fa-microphone"></i> Microphone Test Tool</h1>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Mic Test</a></li>
+                    <li><a href="speaker-test.html">Speaker Test</a></li>
+                    <li><a href="keyboard-test.html">Keyboard Test</a></li>
+                    <li><a href="help-center.html" class="active">Help Center</a></li>
+                    <li class="language-switch"><a href="zh/help-center.html"><i class="fas fa-globe"></i> 中文</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="container">
+                <h2>Help Center</h2>
+                <p>Find answers to common questions and troubleshooting guides for our audio testing tools</p>
+                <div class="search-box">
+                    <input type="text" id="helpSearch" placeholder="Search for help topics..." class="search-input">
+                    <button id="searchBtn" class="btn primary"><i class="fas fa-search"></i> Search</button>
+                </div>
+            </div>
+        </section>
+
+        <section class="help-navigation">
+            <div class="container">
+                <div class="help-nav-grid">
+                    <a href="#faq" class="help-nav-item">
+                        <i class="fas fa-question-circle"></i>
+                        <h3>FAQ</h3>
+                        <p>Frequently asked questions</p>
+                    </a>
+                    <a href="#mic-help" class="help-nav-item">
+                        <i class="fas fa-microphone"></i>
+                        <h3>Microphone Help</h3>
+                        <p>Troubleshooting microphone issues</p>
+                    </a>
+                    <a href="#speaker-help" class="help-nav-item">
+                        <i class="fas fa-volume-up"></i>
+                        <h3>Speaker Help</h3>
+                        <p>Troubleshooting speaker issues</p>
+                    </a>
+                    <a href="#contact" class="help-nav-item">
+                        <i class="fas fa-envelope"></i>
+                        <h3>Contact Support</h3>
+                        <p>Get in touch with our team</p>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <section id="faq" class="help-section">
+            <div class="container">
+                <h2><i class="fas fa-question-circle"></i> Frequently Asked Questions</h2>
+                
+                <div class="accordion">
+                    <div class="accordion-item">
+                        <button class="accordion-header">
+                            <span>Do I need to install anything to use your audio testing tools?</span>
+                            <i class="fas fa-chevron-down"></i>
+                        </button>
+                        <div class="accordion-content">
+                            <p>No, our audio testing tools run directly in your web browser. You don't need to download or install any software. You just need a modern web browser like Chrome, Firefox, Edge, or Safari.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="accordion-item">
+                        <button class="accordion-header">
+                            <span>Why do I need to allow microphone access?</span>
+                            <i class="fas fa-chevron-down"></i>
+                        </button>
+                        <div class="accordion-content">
+                            <p>For microphone testing and some advanced speaker tests (like latency tests), our tool needs access to your microphone to analyze the audio input. We don't record or store any audio - all processing happens locally in your browser.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="accordion-item">
+                        <button class="accordion-header">
+                            <span>Can I use these tools on my phone or tablet?</span>
+                            <i class="fas fa-chevron-down"></i>
+                        </button>
+                        <div class="accordion-content">
+                            <p>Yes, our tools are designed to work on mobile devices as well as desktop computers. The interface will adapt to your screen size. Some advanced testing features may work better on desktop browsers due to Web Audio API implementation differences.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="accordion-item">
+                        <button class="accordion-header">
+                            <span>What does the frequency sweep test do?</span>
+                            <i class="fas fa-chevron-down"></i>
+                        </button>
+                        <div class="accordion-content">
+                            <p>The frequency sweep test plays a tone that gradually changes from low frequencies (20Hz) to high frequencies (20kHz). This helps you check if your speakers or headphones can reproduce the full range of human hearing, and identify any frequencies where your audio system has issues.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="accordion-item">
+                        <button class="accordion-header">
+                            <span>How accurate are the test results?</span>
+                            <i class="fas fa-chevron-down"></i>
+                        </button>
+                        <div class="accordion-content">
+                            <p>Our tests provide a good general assessment of your audio equipment. However, for professional audio work, we recommend professional calibrated equipment. The test accuracy depends on your browser, hardware, and environment. The results should be viewed as informative rather than definitive measurements.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="mic-help" class="help-section">
+            <div class="container">
+                <h2><i class="fas fa-microphone"></i> Microphone Troubleshooting</h2>
+                
+                <div class="troubleshooting-grid">
+                    <div class="troubleshooting-item">
+                        <h3>No Microphone Detected</h3>
+                        <ol>
+                            <li>Check if your microphone is properly connected to your device</li>
+                            <li>Make sure you've allowed browser permission to access your microphone</li>
+                            <li>Try selecting a different microphone if you have multiple devices</li>
+                            <li>Restart your browser and try again</li>
+                            <li>Check if your microphone is disabled in your system settings</li>
+                        </ol>
+                    </div>
+                    
+                    <div class="troubleshooting-item">
+                        <h3>Microphone Not Recording Sound</h3>
+                        <ol>
+                            <li>Check if the microphone is muted in your system settings</li>
+                            <li>Increase the input volume in your system sound settings</li>
+                            <li>Make sure no other application is using the microphone</li>
+                            <li>Try speaking louder or moving closer to the microphone</li>
+                            <li>Test with a different microphone if available</li>
+                        </ol>
+                    </div>
+                    
+                    <div class="troubleshooting-item">
+                        <h3>Poor Audio Quality</h3>
+                        <ol>
+                            <li>Check for background noise in your environment</li>
+                            <li>Make sure the microphone is not covered or obstructed</li>
+                            <li>Try adjusting the distance between you and the microphone</li>
+                            <li>Check if the microphone needs cleaning</li>
+                            <li>Update your audio drivers</li>
+                        </ol>
+                    </div>
+                    
+                    <div class="troubleshooting-item">
+                        <h3>Echo or Feedback Issues</h3>
+                        <ol>
+                            <li>Lower your speaker volume</li>
+                            <li>Use headphones instead of speakers during testing</li>
+                            <li>Move the microphone away from speakers</li>
+                            <li>Check if echo cancellation is enabled in your system</li>
+                            <li>Consider acoustic treatment for your room if problems persist</li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="speaker-help" class="help-section">
+            <div class="container">
+                <h2><i class="fas fa-volume-up"></i> Speaker Troubleshooting</h2>
+                
+                <div class="troubleshooting-grid">
+                    <div class="troubleshooting-item">
+                        <h3>No Sound from Speakers</h3>
+                        <ol>
+                            <li>Check if your speakers are powered on and connected properly</li>
+                            <li>Make sure your system volume is not muted or too low</li>
+                            <li>Verify the correct audio output device is selected in your system</li>
+                            <li>Try playing audio from a different application</li>
+                            <li>Restart your browser and computer</li>
+                        </ol>
+                    </div>
+                    
+                    <div class="troubleshooting-item">
+                        <h3>Distorted Sound</h3>
+                        <ol>
+                            <li>Lower the volume to see if distortion stops</li>
+                            <li>Check cable connections for damage</li>
+                            <li>Try a different audio source to rule out the content</li>
+                            <li>Update your audio drivers</li>
+                            <li>Check if your speakers need service or replacement</li>
+                        </ol>
+                    </div>
+                    
+                    <div class="troubleshooting-item">
+                        <h3>Audio Plays in Only One Channel</h3>
+                        <ol>
+                            <li>Check your system's balance settings</li>
+                            <li>Inspect all cable connections</li>
+                            <li>Try different content to ensure it's not the source material</li>
+                            <li>Test with different speakers or headphones</li>
+                            <li>Update your audio drivers</li>
+                        </ol>
+                    </div>
+                    
+                    <div class="troubleshooting-item">
+                        <h3>Audio Latency or Delay</h3>
+                        <ol>
+                            <li>Close other applications that might be using audio</li>
+                            <li>Check for system updates</li>
+                            <li>Update your audio drivers</li>
+                            <li>Try a different browser</li>
+                            <li>For Bluetooth speakers, try moving them closer to your device</li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="help-section">
+            <div class="container">
+                <h2><i class="fas fa-envelope"></i> Contact Support</h2>
+                
+                <div class="contact-container">
+                    <div class="contact-info">
+                        <p>If you can't find the answer to your question, please contact our support team and we'll be happy to help you.</p>
+                        
+                        <div class="contact-methods">
+                            <div class="contact-method">
+                                <i class="fas fa-envelope-open-text"></i>
+                                <h3>Email Support</h3>
+                                <p>support@microphone-test-tool.com</p>
+                                <p>Response time: within 24 hours</p>
+                            </div>
+                            
+                            <div class="contact-method">
+                                <i class="fas fa-comments"></i>
+                                <h3>Live Chat</h3>
+                                <p>Available Monday-Friday</p>
+                                <p>9am - 5pm EST</p>
+                                <button class="btn primary" id="startChat"><i class="fas fa-comment"></i> Start Chat</button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-form">
+                        <h3>Send us a message</h3>
+                        <form id="supportForm">
+                            <div class="form-group">
+                                <label for="name">Your Name</label>
+                                <input type="text" id="name" name="name" placeholder="Enter your name" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="email">Email Address</label>
+                                <input type="email" id="email" name="email" placeholder="Enter your email" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="topic">Help Topic</label>
+                                <select id="topic" name="topic" required>
+                                    <option value="">Select a topic</option>
+                                    <option value="microphone">Microphone Issues</option>
+                                    <option value="speaker">Speaker Issues</option>
+                                    <option value="account">Account Questions</option>
+                                    <option value="feedback">Feedback/Suggestions</option>
+                                    <option value="other">Other</option>
+                                </select>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="message">Message</label>
+                                <textarea id="message" name="message" placeholder="Describe your issue in detail" rows="5" required></textarea>
+                            </div>
+                            
+                            <button type="submit" class="btn primary"><i class="fas fa-paper-plane"></i> Send Message</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <h2><i class="fas fa-microphone"></i> Microphone Test Tool</h2>
+                    <p>Simple, fast, and accurate audio device testing</p>
+                </div>
+                <div class="footer-links">
+                    <div class="link-group">
+                        <h3>Tools</h3>
+                        <ul>
+                            <li><a href="index.html">Microphone Test</a></li>
+                            <li><a href="speaker-test.html">Speaker Test</a></li>
+                            <li><a href="#">Internet Speed Test</a></li>
+                        </ul>
+                    </div>
+                    <div class="link-group">
+                        <h3>Resources</h3>
+                        <ul>
+                            <li><a href="#">Device Guides</a></li>
+                            <li><a href="#">Troubleshooting</a></li>
+                            <li><a href="#">Equipment Recommendations</a></li>
+                        </ul>
+                    </div>
+                    <div class="link-group">
+                        <h3>About</h3>
+                        <ul>
+                            <li><a href="#">About Us</a></li>
+                            <li><a href="privacy-policy.html">Privacy Policy</a></li>
+                            <li><a href="#">Terms of Use</a></li>
+                            <li><a href="#">Contact Us</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2023 Microphone Test Tool. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Accordion functionality
+            const accordionHeaders = document.querySelectorAll('.accordion-header');
+            
+            accordionHeaders.forEach(header => {
+                header.addEventListener('click', function() {
+                    this.classList.toggle('active');
+                    const content = this.nextElementSibling;
+                    if (content.style.maxHeight) {
+                        content.style.maxHeight = null;
+                    } else {
+                        content.style.maxHeight = content.scrollHeight + 'px';
+                    }
+                });
+            });
+            
+            // Form submission
+            const supportForm = document.getElementById('supportForm');
+            if (supportForm) {
+                supportForm.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    alert('Thank you for your message. Our support team will contact you soon!');
+                    supportForm.reset();
+                });
+            }
+            
+            // Chat button
+            const startChatBtn = document.getElementById('startChat');
+            if (startChatBtn) {
+                startChatBtn.addEventListener('click', function() {
+                    alert('Live chat is currently offline. Please email us or fill out the form instead.');
+                });
+            }
+            
+            // Search functionality
+            const searchBtn = document.getElementById('searchBtn');
+            const helpSearch = document.getElementById('helpSearch');
+            
+            if (searchBtn && helpSearch) {
+                searchBtn.addEventListener('click', function() {
+                    if (helpSearch.value.trim() !== '') {
+                        // Simple search implementation - in a real site this would be more sophisticated
+                        alert('Search results for: ' + helpSearch.value);
+                    }
+                });
+                
+                helpSearch.addEventListener('keypress', function(e) {
+                    if (e.key === 'Enter') {
+                        searchBtn.click();
+                    }
+                });
+            }
+        });
+    </script>
+</body>
+</html> 

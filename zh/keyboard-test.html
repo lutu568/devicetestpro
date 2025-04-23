@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>键盘测试工具 - 在线键盘检测器</title>
+    <meta name="description" content="免费在线键盘测试工具，可检查您的键盘按键是否正常工作，提供可视化按键检测和详细的按键信息。">
+    <link rel="canonical" href="https://microphone-test-tool.com/zh/keyboard-test.html">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/keyboard-test.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="alternate" hreflang="en" href="https://microphone-test-tool.com/keyboard-test.html">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">
+                <h1><i class="fas fa-microphone"></i> 麦克风测试工具</h1>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="index.html">麦克风测试</a></li>
+                    <li><a href="speaker-test.html">扬声器测试</a></li>
+                    <li><a href="keyboard-test.html" class="active">键盘测试</a></li>
+                    <li><a href="help-center.html">帮助中心</a></li>
+                    <li class="language-switch"><a href="../keyboard-test.html"><i class="fas fa-globe"></i> English</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="container">
+                <h2>立即测试您的键盘</h2>
+                <p>使用我们的在线工具快速检查您的所有键盘按键是否正常工作</p>
+                <div class="test-action">
+                    <button id="resetTest" class="btn primary"><i class="fas fa-redo"></i> 重置测试</button>
+                    <button id="showReport" class="btn secondary"><i class="fas fa-clipboard-list"></i> 显示报告</button>
+                </div>
+            </div>
+        </section>
+
+        <section class="test-area">
+            <div class="container">
+                <div class="test-status">
+                    <div id="connectionStatus" class="status-box">
+                        <h3>测试状态</h3>
+                        <div class="status-indicator">
+                            <span class="dot active"></span>
+                            <span class="status-text">按下键盘上的任意键进行测试</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="instruction-box">
+                    <p><i class="fas fa-info-circle"></i> 按下键盘上的按键进行测试。已按下的按键将在下方的虚拟键盘上高亮显示。尝试按下所有按键，确保它们均能正常工作。</p>
+                </div>
+                
+                <div class="keyboard-visualization">
+                    <h3>虚拟键盘</h3>
+                    <div class="keyboard-container">
+                        <!-- Function keys row -->
+                        <div class="keyboard-row">
+                            <div class="key key-sm" data-key="Escape">Esc</div>
+                            <div class="key key-sm" data-key="F1">F1</div>
+                            <div class="key key-sm" data-key="F2">F2</div>
+                            <div class="key key-sm" data-key="F3">F3</div>
+                            <div class="key key-sm" data-key="F4">F4</div>
+                            <div class="key key-sm" data-key="F5">F5</div>
+                            <div class="key key-sm" data-key="F6">F6</div>
+                            <div class="key key-sm" data-key="F7">F7</div>
+                            <div class="key key-sm" data-key="F8">F8</div>
+                            <div class="key key-sm" data-key="F9">F9</div>
+                            <div class="key key-sm" data-key="F10">F10</div>
+                            <div class="key key-sm" data-key="F11">F11</div>
+                            <div class="key key-sm" data-key="F12">F12</div>
+                            <div class="key key-sm" data-key="PrintScreen">截屏</div>
+                            <div class="key key-sm" data-key="ScrollLock">滚动</div>
+                            <div class="key key-sm" data-key="Pause">暂停</div>
+                        </div>
+                        
+                        <!-- Number row -->
+                        <div class="keyboard-row">
+                            <div class="key" data-key="Backquote">`</div>
+                            <div class="key" data-key="Digit1">1</div>
+                            <div class="key" data-key="Digit2">2</div>
+                            <div class="key" data-key="Digit3">3</div>
+                            <div class="key" data-key="Digit4">4</div>
+                            <div class="key" data-key="Digit5">5</div>
+                            <div class="key" data-key="Digit6">6</div>
+                            <div class="key" data-key="Digit7">7</div>
+                            <div class="key" data-key="Digit8">8</div>
+                            <div class="key" data-key="Digit9">9</div>
+                            <div class="key" data-key="Digit0">0</div>
+                            <div class="key" data-key="Minus">-</div>
+                            <div class="key" data-key="Equal">=</div>
+                            <div class="key key-wide" data-key="Backspace">退格</div>
+                            <div class="key key-sm" data-key="Insert">插入</div>
+                            <div class="key key-sm" data-key="Home">首页</div>
+                            <div class="key key-sm" data-key="PageUp">上页</div>
+                        </div>
+                        
+                        <!-- QWERTY row -->
+                        <div class="keyboard-row">
+                            <div class="key key-wide-2" data-key="Tab">Tab</div>
+                            <div class="key" data-key="KeyQ">Q</div>
+                            <div class="key" data-key="KeyW">W</div>
+                            <div class="key" data-key="KeyE">E</div>
+                            <div class="key" data-key="KeyR">R</div>
+                            <div class="key" data-key="KeyT">T</div>
+                            <div class="key" data-key="KeyY">Y</div>
+                            <div class="key" data-key="KeyU">U</div>
+                            <div class="key" data-key="KeyI">I</div>
+                            <div class="key" data-key="KeyO">O</div>
+                            <div class="key" data-key="KeyP">P</div>
+                            <div class="key" data-key="BracketLeft">[</div>
+                            <div class="key" data-key="BracketRight">]</div>
+                            <div class="key key-wide-2" data-key="Backslash">\</div>
+                            <div class="key key-sm" data-key="Delete">删除</div>
+                            <div class="key key-sm" data-key="End">结尾</div>
+                            <div class="key key-sm" data-key="PageDown">下页</div>
+                        </div>
+                        
+                        <!-- ASDF row -->
+                        <div class="keyboard-row">
+                            <div class="key key-wide-3" data-key="CapsLock">大写锁定</div>
+                            <div class="key" data-key="KeyA">A</div>
+                            <div class="key" data-key="KeyS">S</div>
+                            <div class="key" data-key="KeyD">D</div>
+                            <div class="key" data-key="KeyF">F</div>
+                            <div class="key" data-key="KeyG">G</div>
+                            <div class="key" data-key="KeyH">H</div>
+                            <div class="key" data-key="KeyJ">J</div>
+                            <div class="key" data-key="KeyK">K</div>
+                            <div class="key" data-key="KeyL">L</div>
+                            <div class="key" data-key="Semicolon">;</div>
+                            <div class="key" data-key="Quote">'</div>
+                            <div class="key key-wide-3" data-key="Enter">回车</div>
+                        </div>
+                        
+                        <!-- ZXCV row -->
+                        <div class="keyboard-row">
+                            <div class="key key-wide-4" data-key="ShiftLeft">Shift</div>
+                            <div class="key" data-key="KeyZ">Z</div>
+                            <div class="key" data-key="KeyX">X</div>
+                            <div class="key" data-key="KeyC">C</div>
+                            <div class="key" data-key="KeyV">V</div>
+                            <div class="key" data-key="KeyB">B</div>
+                            <div class="key" data-key="KeyN">N</div>
+                            <div class="key" data-key="KeyM">M</div>
+                            <div class="key" data-key="Comma">,</div>
+                            <div class="key" data-key="Period">.</div>
+                            <div class="key" data-key="Slash">/</div>
+                            <div class="key key-wide-4" data-key="ShiftRight">Shift</div>
+                            <div class="key key-sm" data-key="ArrowUp">↑</div>
+                        </div>
+                        
+                        <!-- Space bar row -->
+                        <div class="keyboard-row">
+                            <div class="key key-wide-2" data-key="ControlLeft">Ctrl</div>
+                            <div class="key key-wide" data-key="MetaLeft">Win</div>
+                            <div class="key key-wide" data-key="AltLeft">Alt</div>
+                            <div class="key key-spacebar" data-key="Space">空格</div>
+                            <div class="key key-wide" data-key="AltRight">Alt</div>
+                            <div class="key key-wide" data-key="MetaRight">Win</div>
+                            <div class="key key-wide" data-key="ContextMenu">菜单</div>
+                            <div class="key key-wide-2" data-key="ControlRight">Ctrl</div>
+                            <div class="key key-sm" data-key="ArrowLeft">←</div>
+                            <div class="key key-sm" data-key="ArrowDown">↓</div>
+                            <div class="key key-sm" data-key="ArrowRight">→</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="key-info">
+                    <h3>检测到的按键信息</h3>
+                    <div class="key-details">
+                        <div class="detail-item">
+                            <div class="detail-label">最后按下的按键：</div>
+                            <div class="detail-value" id="lastKeyPressed">-</div>
+                        </div>
+                        <div class="detail-item">
+                            <div class="detail-label">按键代码：</div>
+                            <div class="detail-value" id="keyCode">-</div>
+                        </div>
+                        <div class="detail-item">
+                            <div class="detail-label">已测试按键：</div>
+                            <div class="detail-value" id="keysTested">0 / 101</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section class="test-results" id="resultArea" style="display: none;">
+            <div class="container">
+                <h3>测试结果</h3>
+                <div class="result-container">
+                    <div class="result-summary">
+                        <div class="summary-item">
+                            <div class="summary-label">已测试按键：</div>
+                            <div class="summary-value" id="testedKeysCount">0</div>
+                        </div>
+                        <div class="summary-item">
+                            <div class="summary-label">工作正常：</div>
+                            <div class="summary-value" id="workingKeysCount">0</div>
+                        </div>
+                        <div class="summary-item">
+                            <div class="summary-label">未测试按键：</div>
+                            <div class="summary-value" id="missingKeysCount">0</div>
+                        </div>
+                    </div>
+
+                    <div class="result-details">
+                        <h4>未测试按键</h4>
+                        <div id="missingKeysList" class="missing-keys">
+                            暂无测试数据。请按下键盘上的按键以进行测试。
+                        </div>
+                    </div>
+                </div>
+                <div class="result-actions">
+                    <button id="saveResults" class="btn secondary"><i class="fas fa-save"></i> 保存结果</button>
+                    <button id="copyResults" class="btn secondary"><i class="fas fa-copy"></i> 复制结果</button>
+                    <button id="printResults" class="btn secondary"><i class="fas fa-print"></i> 打印结果</button>
+                </div>
+            </div>
+        </section>
+        
+        <section class="recommendations">
+            <div class="container">
+                <h2>常见键盘问题与解决方案</h2>
+                <div class="faq-grid">
+                    <div class="faq-item">
+                        <h3><i class="fas fa-keyboard"></i> 按键无响应</h3>
+                        <p>使用压缩空气清洁按键下方。对于机械键盘，您可能需要取下键帽进行彻底清洁。对于薄膜键盘，请检查是否有液体损坏。</p>
+                    </div>
+                    <div class="faq-item">
+                        <h3><i class="fas fa-retweet"></i> 按键重复</h3>
+                        <p>在系统设置中调整键盘重复率。如果问题仍然存在，可能是由于按键下方的灰尘或碎屑，或者是按键机制故障。</p>
+                    </div>
+                    <div class="faq-item">
+                        <h3><i class="fas fa-plug"></i> 连接问题</h3>
+                        <p>对于有线键盘，请尝试不同的USB端口或线缆。对于无线键盘，请检查电池电量并尝试重新与设备配对。</p>
+                    </div>
+                    <div class="faq-item">
+                        <h3><i class="fas fa-cog"></i> 驱动程序问题</h3>
+                        <p>从计算机制造商的网站更新或重新安装键盘驱动程序。对于游戏或专业键盘，请安装制造商提供的软件。</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <h2><i class="fas fa-microphone"></i> 麦克风测试工具</h2>
+                    <p>简单、快速、准确的设备测试</p>
+                </div>
+                <div class="footer-links">
+                    <div class="link-group">
+                        <h3>工具</h3>
+                        <ul>
+                            <li><a href="index.html">麦克风测试</a></li>
+                            <li><a href="speaker-test.html">扬声器测试</a></li>
+                            <li><a href="keyboard-test.html">键盘测试</a></li>
+                            <li><a href="#">网速测试</a></li>
+                        </ul>
+                    </div>
+                    <div class="link-group">
+                        <h3>资源</h3>
+                        <ul>
+                            <li><a href="#">设备指南</a></li>
+                            <li><a href="#">故障排除</a></li>
+                            <li><a href="#">设备推荐</a></li>
+                        </ul>
+                    </div>
+                    <div class="link-group">
+                        <h3>关于</h3>
+                        <ul>
+                            <li><a href="#">关于我们</a></li>
+                            <li><a href="privacy-policy.html">隐私政策</a></li>
+                            <li><a href="#">使用条款</a></li>
+                            <li><a href="#">联系我们</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2023 麦克风测试工具。保留所有权利。</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../js/keyboard-test.js"></script>
+</body>
+</html> 

@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>扬声器测试工具 - 完整音频系统检测</title>
+    <meta name="description" content="全面的在线扬声器测试工具，具有高级功能，用于检测您的扬声器、耳机和完整音频系统，并提供详细的诊断分析。">
+    <link rel="canonical" href="https://microphone-test-tool.com/zh/speaker-test.html">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/speaker-test.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="alternate" hreflang="en" href="https://microphone-test-tool.com/speaker-test.html">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">
+                <h1><i class="fas fa-microphone"></i> 麦克风测试工具</h1>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="index.html">麦克风测试</a></li>
+                    <li><a href="speaker-test.html" class="active">扬声器测试</a></li>
+                    <li><a href="keyboard-test.html">键盘测试</a></li>
+                    <li><a href="help-center.html">帮助中心</a></li>
+                    <li class="language-switch"><a href="../speaker-test.html"><i class="fas fa-globe"></i> English</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="container">
+                <h2>完整音频系统测试</h2>
+                <p>使用我们增强的诊断工具测试您的扬声器、耳机和整个音频系统</p>
+                <div class="test-action">
+                    <button id="quickTest" class="btn primary"><i class="fas fa-bolt"></i> 快速全面测试</button>
+                    <button id="playFrequency" class="btn secondary"><i class="fas fa-play"></i> 播放测试音</button>
+                    <button id="stopFrequency" class="btn secondary" disabled><i class="fas fa-stop"></i> 停止声音</button>
+                </div>
+            </div>
+        </section>
+
+        <section class="test-tabs">
+            <div class="container">
+                <div class="tabs">
+                    <button class="tab-btn active" data-tab="basic-tests">基础测试</button>
+                    <button class="tab-btn" data-tab="advanced-tests">高级测试</button>
+                    <button class="tab-btn" data-tab="system-check">系统检查</button>
+                    <button class="tab-btn" data-tab="test-results">测试结果</button>
+                </div>
+                
+                <div class="tab-content active" id="basic-tests">
+                    <div class="test-card">
+                        <h3><i class="fas fa-volume-up"></i> 声道测试</h3>
+                        <p>分别测试左右声道扬声器</p>
+                        <div class="test-content">
+                            <div class="channel-test">
+                                <button id="testLeft" class="btn test-channel-btn"><i class="fas fa-headphones"></i> 测试左声道</button>
+                                <button id="testRight" class="btn test-channel-btn"><i class="fas fa-headphones"></i> 测试右声道</button>
+                                <button id="testBoth" class="btn test-channel-btn primary"><i class="fas fa-headphones"></i> 测试双声道</button>
+                            </div>
+                            <div class="channel-status">
+                                <p>状态: <span id="channelStatus">准备测试</span></p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="test-card">
+                        <h3><i class="fas fa-music"></i> 频率测试</h3>
+                        <p>使用不同频率测试您的扬声器</p>
+                        <div class="test-content">
+                            <div class="frequency-test">
+                                <div class="frequency-value">
+                                    <p>频率: <span id="frequencyValue">440</span> Hz</p>
+                                </div>
+                                <div class="frequency-controls">
+                                    <div class="slider-container">
+                                        <input type="range" id="frequencyRange" min="20" max="20000" step="1" value="440" class="slider">
+                                    </div>
+                                </div>
+                                <div class="frequency-presets">
+                                    <span>预设频率:</span>
+                                    <button class="btn mini" data-freq="100">100 Hz</button>
+                                    <button class="btn mini" data-freq="440">440 Hz</button>
+                                    <button class="btn mini" data-freq="1000">1 kHz</button>
+                                    <button class="btn mini" data-freq="10000">10 kHz</button>
+                                </div>
+                                <div class="frequency-play-controls">
+                                    <button id="playTone" class="btn primary"><i class="fas fa-play"></i> 播放音调</button>
+                                    <button id="stopTone" class="btn secondary" disabled><i class="fas fa-stop"></i> 停止</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="test-card">
+                        <h3><i class="fas fa-wave-square"></i> 声音测试</h3>
+                        <p>使用不同的声音样本测试您的扬声器</p>
+                        <div class="test-content">
+                            <div class="sound-test">
+                                <div class="sound-samples">
+                                    <button class="btn sound-sample" data-sample="white-noise"><i class="fas fa-play"></i> 白噪声</button>
+                                    <button class="btn sound-sample" data-sample="pink-noise"><i class="fas fa-play"></i> 粉噪声</button>
+                                    <button class="btn sound-sample" data-sample="speech"><i class="fas fa-play"></i> 人声样本</button>
+                                    <button class="btn sound-sample" data-sample="music"><i class="fas fa-play"></i> 音乐样本</button>
+                                </div>
+                                <div class="volume-control">
+                                    <p>音量: <span id="volumeValue">80</span>%</p>
+                                    <div class="slider-container">
+                                        <input type="range" id="volumeRange" min="0" max="100" value="80" class="slider">
+                                    </div>
+                                </div>
+                                <div class="frequency-play-controls">
+                                    <button id="stopAllSounds" class="btn secondary"><i class="fas fa-stop"></i> 停止所有声音</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="tab-content" id="advanced-tests">
+                    <div class="test-card">
+                        <h3><i class="fas fa-sliders-h"></i> 音频扫描测试</h3>
+                        <p>测试扬声器的全频率响应</p>
+                        <div class="test-content">
+                            <div class="sweep-test">
+                                <div class="sweep-controls">
+                                    <div class="sweep-range">
+                                        <label>扫描范围:</label>
+                                        <select id="sweepRange" class="form-select">
+                                            <option value="full">全频范围 (20Hz-20kHz)</option>
+                                            <option value="low">低频 (20Hz-200Hz)</option>
+                                            <option value="mid">中频 (200Hz-5kHz)</option>
+                                            <option value="high">高频 (5kHz-20kHz)</option>
+                                        </select>
+                                    </div>
+                                    <div class="sweep-duration">
+                                        <label>持续时间:</label>
+                                        <select id="sweepDuration" class="form-select">
+                                            <option value="5">5 秒</option>
+                                            <option value="10" selected>10 秒</option>
+                                            <option value="20">20 秒</option>
+                                            <option value="30">30 秒</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="sweep-buttons">
+                                    <button id="startSweep" class="btn primary"><i class="fas fa-play"></i> 开始频率扫描</button>
+                                    <button id="stopSweep" class="btn secondary" disabled><i class="fas fa-stop"></i> 停止扫描</button>
+                                </div>
+                                <div class="sweep-visualization">
+                                    <canvas id="sweepVisualizer" width="800" height="200"></canvas>
+                                    <div id="sweepInfo">从 20 Hz 到 20 kHz 扫描</div>
+                                    <div id="sweepProgress" class="progress-bar">
+                                        <div class="progress-fill"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="test-card">
+                        <h3><i class="fas fa-headphones"></i> 耳机质量测试</h3>
+                        <p>使用专业化样本测试您的耳机音频质量</p>
+                        <div class="test-content">
+                            <div class="headphone-test">
+                                <div class="test-categories">
+                                    <button class="btn test-category-btn" data-category="spatial"><i class="fas fa-cube"></i> 空间音频</button>
+                                    <button class="btn test-category-btn" data-category="bass"><i class="fas fa-drum"></i> 低音响应</button>
+                                    <button class="btn test-category-btn" data-category="clarity"><i class="fas fa-music"></i> 音频清晰度</button>
+                                    <button class="btn test-category-btn" data-category="dynamic"><i class="fas fa-wave-square"></i> 动态范围</button>
+                                </div>
+                                <div class="test-description" id="headphoneTestDescription">
+                                    选择上面的测试类别开始测试您的耳机。
+                                </div>
+                                <div class="test-visualization">
+                                    <canvas id="headphoneVisualizer" width="600" height="150"></canvas>
+                                </div>
+                                <div class="test-controls">
+                                    <button id="startHeadphoneTest" class="btn primary" disabled><i class="fas fa-play"></i> 开始测试</button>
+                                    <button id="stopHeadphoneTest" class="btn secondary" disabled><i class="fas fa-stop"></i> 停止测试</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="test-card">
+                        <h3><i class="fas fa-clock"></i> 音频延迟测试</h3>
+                        <p>测量您系统的音频延迟</p>
+                        <div class="test-content">
+                            <div class="latency-test">
+                                <div class="latency-description">
+                                    <p>此测试将测量计算机音频输出与麦克风输入之间的音频延迟。您需要同时连接麦克风和扬声器/耳机。</p>
+                                </div>
+                                <div class="latency-visualization">
+                                    <div class="latency-meter">
+                                        <div class="meter-label">估计延迟</div>
+                                        <div id="latencyValue">-- 毫秒</div>
+                                    </div>
+                                </div>
+                                <div class="latency-controls">
+                                    <button id="startLatencyTest" class="btn primary"><i class="fas fa-play"></i> 开始延迟测试</button>
+                                    <button id="stopLatencyTest" class="btn secondary" disabled><i class="fas fa-stop"></i> 停止测试</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="tab-content" id="system-check">
+                    <div class="test-card">
+                        <h3><i class="fas fa-clipboard-check"></i> 音频系统状态</h3>
+                        <p>检查您的音频设备和系统配置状态</p>
+                        <div class="test-content">
+                            <div class="system-info">
+                                <div class="info-item">
+                                    <div class="info-label">音频输出设备:</div>
+                                    <div class="info-value" id="audioOutputDevice">检查中...</div>
+                                </div>
+                                <div class="info-item">
+                                    <div class="info-label">采样率:</div>
+                                    <div class="info-value" id="sampleRate">检查中...</div>
+                                </div>
+                                <div class="info-item">
+                                    <div class="info-label">声道数:</div>
+                                    <div class="info-value" id="channelCount">检查中...</div>
+                                </div>
+                                <div class="info-item">
+                                    <div class="info-label">系统音量:</div>
+                                    <div class="info-value" id="systemVolume">检查中...</div>
+                                </div>
+                                <div class="info-item">
+                                    <div class="info-label">Web Audio API 支持:</div>
+                                    <div class="info-value" id="webAudioSupport">检查中...</div>
+                                </div>
+                            </div>
+                            <div class="system-actions">
+                                <button id="refreshSystemInfo" class="btn primary"><i class="fas fa-sync-alt"></i> 刷新信息</button>
+                                <button id="exportSystemInfo" class="btn secondary"><i class="fas fa-download"></i> 导出报告</button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="test-card">
+                        <h3><i class="fas fa-exclamation-triangle"></i> 问题检测</h3>
+                        <p>自动检测音频系统潜在问题</p>
+                        <div class="test-content">
+                            <div class="issue-detection">
+                                <div class="detection-status">
+                                    <p>状态: <span id="detectionStatus">准备扫描</span></p>
+                                </div>
+                                <div class="detection-progress" id="detectionProgress" style="display: none;">
+                                    <div class="progress-bar">
+                                        <div class="progress-fill"></div>
+                                    </div>
+                                    <p>正在运行测试... <span id="detectionProgressValue">0%</span></p>
+                                </div>
+                                <div class="detection-results" id="detectionResults">
+                                    <p>点击"开始扫描"检查潜在的音频问题。</p>
+                                </div>
+                                <div class="detection-controls">
+                                    <button id="startDetection" class="btn primary"><i class="fas fa-search"></i> 开始扫描</button>
+                                    <button id="stopDetection" class="btn secondary" disabled><i class="fas fa-stop"></i> 停止扫描</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="tab-content" id="test-results">
+                    <div class="test-card">
+                        <h3><i class="fas fa-chart-line"></i> 测试结果摘要</h3>
+                        <p>您的音频系统测试结果摘要</p>
+                        <div class="test-content">
+                            <div class="results-summary">
+                                <div class="summary-chart">
+                                    <canvas id="resultsChart" width="600" height="300"></canvas>
+                                </div>
+                                <div class="summary-scores">
+                                    <div class="score-item">
+                                        <div class="score-label">扬声器总体评分:</div>
+                                        <div class="score-value" id="speakersScore">--</div>
+                                    </div>
+                                    <div class="score-item">
+                                        <div class="score-label">耳机评分:</div>
+                                        <div class="score-value" id="headphonesScore">--</div>
+                                    </div>
+                                    <div class="score-item">
+                                        <div class="score-label">音频延迟:</div>
+                                        <div class="score-value" id="latencyScore">--</div>
+                                    </div>
+                                    <div class="score-item">
+                                        <div class="score-label">系统配置:</div>
+                                        <div class="score-value" id="systemScore">--</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="results-details" id="resultsDetails">
+                                <p>完成测试以查看详细结果。</p>
+                            </div>
+                            <div class="results-actions">
+                                <button id="saveResults" class="btn primary"><i class="fas fa-save"></i> 保存结果</button>
+                                <button id="shareResults" class="btn secondary"><i class="fas fa-share-alt"></i> 分享结果</button>
+                                <button id="clearResults" class="btn secondary"><i class="fas fa-trash"></i> 清除结果</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section class="recommendations">
+            <div class="container">
+                <h2>常见问题与解决方案</h2>
+                <div class="faq-grid">
+                    <div class="faq-item">
+                        <h3><i class="fas fa-volume-mute"></i> 没有声音</h3>
+                        <p>检查设备是否静音，验证连接，确保在系统设置中选择了正确的输出设备。</p>
+                    </div>
+                    <div class="faq-item">
+                        <h3><i class="fas fa-volume-down"></i> 音量过低</h3>
+                        <p>同时检查系统音量和应用音量。某些设备还有单独的硬件音量控制。</p>
+                    </div>
+                    <div class="faq-item">
+                        <h3><i class="fas fa-bolt"></i> 声音失真</h3>
+                        <p>降低音量检查失真是否与音量相关。更新音频驱动程序或检查扬声器或连接是否损坏。</p>
+                    </div>
+                    <div class="faq-item">
+                        <h3><i class="fas fa-balance-scale"></i> 声道不平衡</h3>
+                        <p>检查音频控制面板中的平衡设置。确认所有连接都牢固且正确插入。</p>
+                    </div>
+                </div>
+                <div class="cta-box">
+                    <h3>需要更专业的音频测试？</h3>
+                    <p>尝试我们的高级测试工具，获取更详细的音频分析和专业建议</p>
+                    <button class="btn primary" id="upgradeCta"><i class="fas fa-arrow-circle-up"></i> 升级到专业版</button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <h2><i class="fas fa-microphone"></i> 麦克风测试工具</h2>
+                    <p>简单、快速、准确地测试您的音频设备</p>
+                </div>
+                <div class="footer-links">
+                    <div class="link-group">
+                        <h3>工具</h3>
+                        <ul>
+                            <li><a href="index.html">麦克风测试</a></li>
+                            <li><a href="speaker-test.html">扬声器测试</a></li>
+                            <li><a href="#">摄像头测试</a></li>
+                            <li><a href="#">网络测速</a></li>
+                        </ul>
+                    </div>
+                    <div class="link-group">
+                        <h3>资源</h3>
+                        <ul>
+                            <li><a href="#">设备指南</a></li>
+                            <li><a href="#">故障排除</a></li>
+                            <li><a href="#">设备推荐</a></li>
+                        </ul>
+                    </div>
+                    <div class="link-group">
+                        <h3>关于</h3>
+                        <ul>
+                            <li><a href="#">关于我们</a></li>
+                            <li><a href="privacy-policy.html">隐私政策</a></li>
+                            <li><a href="#">使用条款</a></li>
+                            <li><a href="#">联系我们</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2023 麦克风测试工具. 保留所有权利。</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="../js/speaker-test.js"></script>
+    <script src="../js/enhanced-audio-tests.js"></script>
+</body>
+</html> 

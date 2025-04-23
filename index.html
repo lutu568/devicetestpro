@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Microphone Test Tool - Online Microphone Check</title>
+    <meta name="description" content="Free online microphone test tool to easily check if your microphone is working properly, with detailed audio analysis and troubleshooting suggestions.">
+    <link rel="canonical" href="https://microphone-test-tool.com/">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="alternate" hreflang="zh-CN" href="https://microphone-test-tool.com/zh/">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">
+                <h1><i class="fas fa-microphone"></i> Microphone Test Tool</h1>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="index.html" class="active">Mic Test</a></li>
+                    <li><a href="speaker-test.html">Speaker Test</a></li>
+                    <li><a href="keyboard-test.html">Keyboard Test</a></li>
+                    <li><a href="help-center.html">Help Center</a></li>
+                    <li class="language-switch"><a href="zh/index.html"><i class="fas fa-globe"></i> 中文</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="container">
+                <h2>Test Your Microphone Instantly</h2>
+                <p>Use our online tool to quickly check if your microphone is working properly</p>
+                <div class="test-action">
+                    <button id="startTest" class="btn primary"><i class="fas fa-play"></i> Start Test</button>
+                    <button id="stopTest" class="btn secondary" disabled><i class="fas fa-stop"></i> Stop Test</button>
+                </div>
+            </div>
+        </section>
+
+        <section class="test-area">
+            <div class="container">
+                <div class="test-status">
+                    <div id="connectionStatus" class="status-box">
+                        <h3>Connection Status</h3>
+                        <div class="status-indicator" id="micStatus">
+                            <span class="dot waiting"></span>
+                            <span class="status-text">Waiting to start test...</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="test-visualization">
+                    <div class="visual-area">
+                        <h3>Audio Visualization</h3>
+                        <div class="visualizer-container">
+                            <canvas id="audioVisualizer" width="600" height="200"></canvas>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="test-metrics">
+                    <div class="metric-box">
+                        <h3>Volume Level</h3>
+                        <div class="meter-container">
+                            <div class="meter">
+                                <div id="volumeMeter" class="meter-fill"></div>
+                            </div>
+                            <div id="volumeValue" class="meter-value">0 dB</div>
+                        </div>
+                    </div>
+                    
+                    <div class="metric-box">
+                        <h3>Frequency Analysis</h3>
+                        <canvas id="frequencyVisualizer" width="300" height="150"></canvas>
+                    </div>
+                </div>
+                
+                <div class="test-results" id="resultArea" style="display: none;">
+                    <h3>Test Results</h3>
+                    <div class="result-container">
+                        <div id="testResults" class="result-details"></div>
+                    </div>
+                    <div class="result-actions">
+                        <button id="saveResults" class="btn secondary"><i class="fas fa-save"></i> Save Results</button>
+                        <button id="shareResults" class="btn secondary"><i class="fas fa-share-alt"></i> Share Results</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section class="recommendations">
+            <div class="container">
+                <h2>Common Issues & Solutions</h2>
+                <div class="faq-grid">
+                    <div class="faq-item">
+                        <h3><i class="fas fa-volume-mute"></i> No Sound Signal</h3>
+                        <p>Check if your microphone is properly connected and ensure you have granted microphone access in your browser and system settings.</p>
+                    </div>
+                    <div class="faq-item">
+                        <h3><i class="fas fa-volume-down"></i> Low Volume</h3>
+                        <p>Adjust your system volume settings, ensure microphone gain is set appropriately, or try moving the microphone closer to the sound source.</p>
+                    </div>
+                    <div class="faq-item">
+                        <h3><i class="fas fa-bolt"></i> Intermittent Sound</h3>
+                        <p>Check if your USB connection is stable, ensure no background programs are using too many system resources, or try updating your audio drivers.</p>
+                    </div>
+                    <div class="faq-item">
+                        <h3><i class="fas fa-wind"></i> Background Noise</h3>
+                        <p>Try using your microphone in a quiet environment or consider using a microphone with noise-cancellation features.</p>
+                    </div>
+                </div>
+                <div class="cta-box">
+                    <h3>Need More Professional Microphone Testing?</h3>
+                    <p>Try our advanced testing tools for more detailed audio analysis and professional recommendations</p>
+                    <button class="btn primary" id="upgradeCta"><i class="fas fa-arrow-circle-up"></i> Upgrade to Pro</button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <h2><i class="fas fa-microphone"></i> Microphone Test Tool</h2>
+                    <p>Simple, fast, and accurate audio device testing</p>
+                </div>
+                <div class="footer-links">
+                    <div class="link-group">
+                        <h3>Tools</h3>
+                        <ul>
+                            <li><a href="index.html">Microphone Test</a></li>
+                            <li><a href="speaker-test.html">Speaker Test</a></li>
+                            <li><a href="#">Internet Speed Test</a></li>
+                        </ul>
+                    </div>
+                    <div class="link-group">
+                        <h3>Resources</h3>
+                        <ul>
+                            <li><a href="#">Device Guides</a></li>
+                            <li><a href="#">Troubleshooting</a></li>
+                            <li><a href="#">Equipment Recommendations</a></li>
+                        </ul>
+                    </div>
+                    <div class="link-group">
+                        <h3>About</h3>
+                        <ul>
+                            <li><a href="#">About Us</a></li>
+                            <li><a href="privacy-policy.html">Privacy Policy</a></li>
+                            <li><a href="#">Terms of Use</a></li>
+                            <li><a href="#">Contact Us</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2023 Microphone Test Tool. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/app.js"></script>
+</body>
+</html> 

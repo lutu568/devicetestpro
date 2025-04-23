@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Speaker Test - Complete Audio System Check Tool</title>
+    <meta name="description" content="Comprehensive online speaker test tool with advanced features to check your speakers, headphones, and complete audio system with various tests and detailed diagnostics.">
+    <link rel="canonical" href="https://microphone-test-tool.com/speaker-test.html">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/speaker-test.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="alternate" hreflang="zh-CN" href="https://microphone-test-tool.com/zh/speaker-test.html">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">
+                <h1><i class="fas fa-microphone"></i> Microphone Test Tool</h1>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Mic Test</a></li>
+                    <li><a href="speaker-test.html" class="active">Speaker Test</a></li>
+                    <li><a href="keyboard-test.html">Keyboard Test</a></li>
+                    <li><a href="help-center.html">Help Center</a></li>
+                    <li class="language-switch"><a href="zh/speaker-test.html"><i class="fas fa-globe"></i> 中文</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="container">
+                <h2>Complete Audio System Test</h2>
+                <p>Test your speakers, headphones, and entire audio system with our enhanced diagnostic tools</p>
+                <div class="test-action">
+                    <button id="quickTest" class="btn primary"><i class="fas fa-bolt"></i> Quick Test All</button>
+                    <button id="playFrequency" class="btn secondary"><i class="fas fa-play"></i> Play Test Sound</button>
+                    <button id="stopFrequency" class="btn secondary" disabled><i class="fas fa-stop"></i> Stop Sound</button>
+                </div>
+            </div>
+        </section>
+
+        <section class="test-tabs">
+            <div class="container">
+                <div class="tabs">
+                    <button class="tab-btn active" data-tab="basic-tests">Basic Tests</button>
+                    <button class="tab-btn" data-tab="advanced-tests">Advanced Tests</button>
+                    <button class="tab-btn" data-tab="system-check">System Check</button>
+                    <button class="tab-btn" data-tab="test-results">Results</button>
+                </div>
+                
+                <div class="tab-content active" id="basic-tests">
+                    <div class="test-card">
+                        <h3><i class="fas fa-volume-up"></i> Channel Test</h3>
+                        <p>Test left and right speaker channels separately</p>
+                        <div class="test-content">
+                            <div class="channel-test">
+                                <button id="testLeft" class="btn test-channel-btn"><i class="fas fa-headphones"></i> Test Left</button>
+                                <button id="testRight" class="btn test-channel-btn"><i class="fas fa-headphones"></i> Test Right</button>
+                                <button id="testBoth" class="btn test-channel-btn primary"><i class="fas fa-headphones"></i> Test Both</button>
+                            </div>
+                            <div class="channel-status">
+                                <p>Status: <span id="channelStatus">Ready to test</span></p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="test-card">
+                        <h3><i class="fas fa-music"></i> Frequency Test</h3>
+                        <p>Test your speakers with different frequencies</p>
+                        <div class="test-content">
+                            <div class="frequency-test">
+                                <div class="frequency-value">
+                                    <p>Frequency: <span id="frequencyValue">440</span> Hz</p>
+                                </div>
+                                <div class="frequency-controls">
+                                    <div class="slider-container">
+                                        <input type="range" id="frequencyRange" min="20" max="20000" value="440" class="slider">
+                                    </div>
+                                </div>
+                                <div class="frequency-presets">
+                                    <span>Presets:</span>
+                                    <button class="btn mini" data-freq="100">100 Hz</button>
+                                    <button class="btn mini" data-freq="440">440 Hz</button>
+                                    <button class="btn mini" data-freq="1000">1 kHz</button>
+                                    <button class="btn mini" data-freq="10000">10 kHz</button>
+                                </div>
+                                <div class="frequency-play-controls">
+                                    <button id="playTone" class="btn primary"><i class="fas fa-play"></i> Play Tone</button>
+                                    <button id="stopTone" class="btn secondary" disabled><i class="fas fa-stop"></i> Stop</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="test-card">
+                        <h3><i class="fas fa-wave-square"></i> Sound Test</h3>
+                        <p>Test your speakers with different sound samples</p>
+                        <div class="test-content">
+                            <div class="sound-test">
+                                <div class="sound-samples">
+                                    <button class="btn sound-sample" data-sample="white-noise"><i class="fas fa-play"></i> White Noise</button>
+                                    <button class="btn sound-sample" data-sample="pink-noise"><i class="fas fa-play"></i> Pink Noise</button>
+                                    <button class="btn sound-sample" data-sample="speech"><i class="fas fa-play"></i> Speech Sample</button>
+                                    <button class="btn sound-sample" data-sample="music"><i class="fas fa-play"></i> Music Sample</button>
+                                </div>
+                                <div class="volume-control">
+                                    <p>Volume: <span id="volumeValue">80</span>%</p>
+                                    <div class="slider-container">
+                                        <input type="range" id="volumeRange" min="0" max="100" value="80" class="slider">
+                                    </div>
+                                </div>
+                                <div class="frequency-play-controls">
+                                    <button id="stopAllSounds" class="btn secondary"><i class="fas fa-stop"></i> Stop All Sounds</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="tab-content" id="advanced-tests">
+                    <div class="test-card">
+                        <h3><i class="fas fa-sliders-h"></i> Audio Sweep Test</h3>
+                        <p>Test the full frequency response of your speakers</p>
+                        <div class="test-content">
+                            <div class="sweep-test">
+                                <div class="sweep-controls">
+                                    <div class="sweep-range">
+                                        <label>Sweep Range:</label>
+                                        <select id="sweepRange" class="form-select">
+                                            <option value="full">Full Range (20Hz-20kHz)</option>
+                                            <option value="low">Low Frequencies (20Hz-200Hz)</option>
+                                            <option value="mid">Mid Frequencies (200Hz-5kHz)</option>
+                                            <option value="high">High Frequencies (5kHz-20kHz)</option>
+                                        </select>
+                                    </div>
+                                    <div class="sweep-duration">
+                                        <label>Duration:</label>
+                                        <select id="sweepDuration" class="form-select">
+                                            <option value="5">5 seconds</option>
+                                            <option value="10" selected>10 seconds</option>
+                                            <option value="20">20 seconds</option>
+                                            <option value="30">30 seconds</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="sweep-buttons">
+                                    <button id="startSweep" class="btn primary"><i class="fas fa-play"></i> Start Frequency Sweep</button>
+                                    <button id="stopSweep" class="btn secondary" disabled><i class="fas fa-stop"></i> Stop Sweep</button>
+                                </div>
+                                <div class="sweep-visualization">
+                                    <canvas id="sweepVisualizer" width="800" height="200"></canvas>
+                                    <div id="sweepInfo">Sweep from 20 Hz to 20 kHz</div>
+                                    <div id="sweepProgress" class="progress-bar">
+                                        <div class="progress-fill"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="test-card">
+                        <h3><i class="fas fa-headphones"></i> Headphone Quality Test</h3>
+                        <p>Test the audio quality of your headphones with specialized samples</p>
+                        <div class="test-content">
+                            <div class="headphone-test">
+                                <div class="test-categories">
+                                    <button class="btn test-category-btn" data-category="spatial"><i class="fas fa-cube"></i> Spatial Audio</button>
+                                    <button class="btn test-category-btn" data-category="bass"><i class="fas fa-drum"></i> Bass Response</button>
+                                    <button class="btn test-category-btn" data-category="clarity"><i class="fas fa-music"></i> Audio Clarity</button>
+                                    <button class="btn test-category-btn" data-category="dynamic"><i class="fas fa-wave-square"></i> Dynamic Range</button>
+                                </div>
+                                <div class="test-description" id="headphoneTestDescription">
+                                    Select a test category above to start testing your headphones.
+                                </div>
+                                <div class="test-visualization">
+                                    <canvas id="headphoneVisualizer" width="600" height="150"></canvas>
+                                </div>
+                                <div class="test-controls">
+                                    <button id="startHeadphoneTest" class="btn primary" disabled><i class="fas fa-play"></i> Start Test</button>
+                                    <button id="stopHeadphoneTest" class="btn secondary" disabled><i class="fas fa-stop"></i> Stop Test</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="test-card">
+                        <h3><i class="fas fa-clock"></i> Audio Latency Test</h3>
+                        <p>Measure the audio latency of your system</p>
+                        <div class="test-content">
+                            <div class="latency-test">
+                                <div class="latency-description">
+                                    <p>This test will measure the audio latency between your computer's audio output and microphone input. You'll need both a working microphone and speakers/headphones.</p>
+                                </div>
+                                <div class="latency-visualization">
+                                    <div class="latency-meter">
+                                        <div class="meter-label">Estimated Latency</div>
+                                        <div id="latencyValue">-- ms</div>
+                                    </div>
+                                </div>
+                                <div class="latency-controls">
+                                    <button id="startLatencyTest" class="btn primary"><i class="fas fa-play"></i> Start Latency Test</button>
+                                    <button id="stopLatencyTest" class="btn secondary" disabled><i class="fas fa-stop"></i> Stop Test</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="tab-content" id="system-check">
+                    <div class="test-card">
+                        <h3><i class="fas fa-clipboard-check"></i> Audio System Status</h3>
+                        <p>Check the status of your audio devices and system configuration</p>
+                        <div class="test-content">
+                            <div class="system-info">
+                                <div class="info-item">
+                                    <div class="info-label">Audio Output Device:</div>
+                                    <div class="info-value" id="audioOutputDevice">Checking...</div>
+                                </div>
+                                <div class="info-item">
+                                    <div class="info-label">Sample Rate:</div>
+                                    <div class="info-value" id="sampleRate">Checking...</div>
+                                </div>
+                                <div class="info-item">
+                                    <div class="info-label">Channels:</div>
+                                    <div class="info-value" id="channelCount">Checking...</div>
+                                </div>
+                                <div class="info-item">
+                                    <div class="info-label">System Volume:</div>
+                                    <div class="info-value" id="systemVolume">Checking...</div>
+                                </div>
+                                <div class="info-item">
+                                    <div class="info-label">Web Audio API Support:</div>
+                                    <div class="info-value" id="webAudioSupport">Checking...</div>
+                                </div>
+                            </div>
+                            <div class="system-actions">
+                                <button id="refreshSystemInfo" class="btn primary"><i class="fas fa-sync-alt"></i> Refresh Info</button>
+                                <button id="exportSystemInfo" class="btn secondary"><i class="fas fa-download"></i> Export Report</button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="test-card">
+                        <h3><i class="fas fa-exclamation-triangle"></i> Issue Detection</h3>
+                        <p>Automatically detect potential issues with your audio system</p>
+                        <div class="test-content">
+                            <div class="issue-detection">
+                                <div class="detection-status">
+                                    <p>Status: <span id="detectionStatus">Ready to scan</span></p>
+                                </div>
+                                <div class="detection-progress" id="detectionProgress" style="display: none;">
+                                    <div class="progress-bar">
+                                        <div class="progress-fill"></div>
+                                    </div>
+                                    <p>Running tests... <span id="detectionProgressValue">0%</span></p>
+                                </div>
+                                <div class="detection-results" id="detectionResults">
+                                    <p>Click "Start Scan" to check for potential audio issues.</p>
+                                </div>
+                                <div class="detection-controls">
+                                    <button id="startDetection" class="btn primary"><i class="fas fa-search"></i> Start Scan</button>
+                                    <button id="stopDetection" class="btn secondary" disabled><i class="fas fa-stop"></i> Stop Scan</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="tab-content" id="test-results">
+                    <div class="test-card">
+                        <h3><i class="fas fa-chart-line"></i> Test Results Summary</h3>
+                        <p>Summary of your audio system test results</p>
+                        <div class="test-content">
+                            <div class="results-summary">
+                                <div class="summary-chart">
+                                    <canvas id="resultsChart" width="600" height="300"></canvas>
+                                </div>
+                                <div class="summary-scores">
+                                    <div class="score-item">
+                                        <div class="score-label">Speakers Overall:</div>
+                                        <div class="score-value" id="speakersScore">--</div>
+                                    </div>
+                                    <div class="score-item">
+                                        <div class="score-label">Headphones:</div>
+                                        <div class="score-value" id="headphonesScore">--</div>
+                                    </div>
+                                    <div class="score-item">
+                                        <div class="score-label">Audio Latency:</div>
+                                        <div class="score-value" id="latencyScore">--</div>
+                                    </div>
+                                    <div class="score-item">
+                                        <div class="score-label">System Configuration:</div>
+                                        <div class="score-value" id="systemScore">--</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="results-details" id="resultsDetails">
+                                <p>Complete the tests to see detailed results.</p>
+                            </div>
+                            <div class="results-actions">
+                                <button id="saveResults" class="btn primary"><i class="fas fa-save"></i> Save Results</button>
+                                <button id="shareResults" class="btn secondary"><i class="fas fa-share-alt"></i> Share Results</button>
+                                <button id="clearResults" class="btn secondary"><i class="fas fa-trash"></i> Clear Results</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section class="recommendations">
+            <div class="container">
+                <h2>Common Issues & Solutions</h2>
+                <div class="faq-grid">
+                    <div class="faq-item">
+                        <h3><i class="fas fa-volume-mute"></i> No Sound</h3>
+                        <p>Check if your device is muted, verify connections, ensure the correct output device is selected in your system settings.</p>
+                    </div>
+                    <div class="faq-item">
+                        <h3><i class="fas fa-volume-down"></i> Low Volume</h3>
+                        <p>Check both system volume and the application volume. Some devices have separate hardware volume controls as well.</p>
+                    </div>
+                    <div class="faq-item">
+                        <h3><i class="fas fa-bolt"></i> Distorted Sound</h3>
+                        <p>Lower the volume to check if distortion is volume-related. Update audio drivers or check for damage to speakers or connections.</p>
+                    </div>
+                    <div class="faq-item">
+                        <h3><i class="fas fa-balance-scale"></i> Channel Imbalance</h3>
+                        <p>Check balance settings in your audio control panel. Verify that all connections are secure and properly plugged in.</p>
+                    </div>
+                </div>
+                <div class="cta-box">
+                    <h3>Need More Professional Audio Testing?</h3>
+                    <p>Try our advanced testing tools for more detailed audio analysis and professional recommendations</p>
+                    <button class="btn primary" id="upgradeCta"><i class="fas fa-arrow-circle-up"></i> Upgrade to Pro</button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <h2><i class="fas fa-microphone"></i> Microphone Test Tool</h2>
+                    <p>Simple, fast, and accurate audio device testing</p>
+                </div>
+                <div class="footer-links">
+                    <div class="link-group">
+                        <h3>Tools</h3>
+                        <ul>
+                            <li><a href="index.html">Microphone Test</a></li>
+                            <li><a href="speaker-test.html">Speaker Test</a></li>
+                            <li><a href="#">Camera Test</a></li>
+                            <li><a href="#">Internet Speed Test</a></li>
+                        </ul>
+                    </div>
+                    <div class="link-group">
+                        <h3>Resources</h3>
+                        <ul>
+                            <li><a href="#">Device Guides</a></li>
+                            <li><a href="#">Troubleshooting</a></li>
+                            <li><a href="#">Equipment Recommendations</a></li>
+                        </ul>
+                    </div>
+                    <div class="link-group">
+                        <h3>About</h3>
+                        <ul>
+                            <li><a href="#">About Us</a></li>
+                            <li><a href="privacy-policy.html">Privacy Policy</a></li>
+                            <li><a href="#">Terms of Use</a></li>
+                            <li><a href="#">Contact Us</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2023 Microphone Test Tool. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="js/speaker-test.js"></script>
+    <script src="js/enhanced-audio-tests.js"></script>
+</body>
+</html> 

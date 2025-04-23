@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>键盘测试工具</title>
+    <link rel="stylesheet" href="../css/keyboard-test.css">
+</head>
+<body>
+    <header class="header">
+        <div class="header-content">
+            <h1>键盘测试工具</h1>
+            <div class="language-selector-container">
+                <select id="language-selector">
+                    <option value="zh-CN" selected>中文</option>
+                    <option value="en-US">English</option>
+                </select>
+            </div>
+        </div>
+    </header>
+
+    <main class="main-content">
+        <section class="test-status">
+            <div class="status-indicator">
+                <div class="dot"></div>
+                <span class="status-text">测试未开始</span>
+            </div>
+            <div class="progress-info">已测试: 0/104 键 (0%)</div>
+            <button id="start-test" class="action-button">开始测试</button>
+        </section>
+
+        <section class="key-info">
+            <div class="info-box">
+                <div class="info-item">
+                    <span class="info-label">最近按键:</span>
+                    <span class="last-key-value">-</span>
+                </div>
+                <div class="info-item">
+                    <span class="info-label">键码:</span>
+                    <span class="key-code-value">-</span>
+                </div>
+                <div class="info-item">
+                    <span class="info-label">键名:</span>
+                    <span class="key-name-value">-</span>
+                </div>
+                <div class="info-item">
+                    <span class="info-label">已测试键数:</span>
+                    <span class="total-tested-value">0</span>
+                </div>
+            </div>
+        </section>
+
+        <section class="keyboard-layout">
+            <!-- 功能键区 -->
+            <div class="keyboard-row function-keys">
+                <div class="key" data-keycode="27" data-key-name="Esc">Esc</div>
+                <div class="key spacer"></div>
+                <div class="key" data-keycode="112">F1</div>
+                <div class="key" data-keycode="113">F2</div>
+                <div class="key" data-keycode="114">F3</div>
+                <div class="key" data-keycode="115">F4</div>
+                <div class="key spacer"></div>
+                <div class="key" data-keycode="116">F5</div>
+                <div class="key" data-keycode="117">F6</div>
+                <div class="key" data-keycode="118">F7</div>
+                <div class="key" data-keycode="119">F8</div>
+                <div class="key spacer"></div>
+                <div class="key" data-keycode="120">F9</div>
+                <div class="key" data-keycode="121">F10</div>
+                <div class="key" data-keycode="122">F11</div>
+                <div class="key" data-keycode="123">F12</div>
+            </div>
+
+            <!-- 主键盘区 -->
+            <div class="keyboard-row">
+                <div class="key accent" data-keycode="192">~</div>
+                <div class="key" data-keycode="49">1</div>
+                <div class="key" data-keycode="50">2</div>
+                <div class="key" data-keycode="51">3</div>
+                <div class="key" data-keycode="52">4</div>
+                <div class="key" data-keycode="53">5</div>
+                <div class="key" data-keycode="54">6</div>
+                <div class="key" data-keycode="55">7</div>
+                <div class="key" data-keycode="56">8</div>
+                <div class="key" data-keycode="57">9</div>
+                <div class="key" data-keycode="48">0</div>
+                <div class="key" data-keycode="189">-</div>
+                <div class="key" data-keycode="187">=</div>
+                <div class="key wider" data-keycode="8" data-key-name="Backspace">Backspace</div>
+            </div>
+
+            <div class="keyboard-row">
+                <div class="key wider" data-keycode="9" data-key-name="Tab">Tab</div>
+                <div class="key" data-keycode="81">Q</div>
+                <div class="key" data-keycode="87">W</div>
+                <div class="key" data-keycode="69">E</div>
+                <div class="key" data-keycode="82">R</div>
+                <div class="key" data-keycode="84">T</div>
+                <div class="key" data-keycode="89">Y</div>
+                <div class="key" data-keycode="85">U</div>
+                <div class="key" data-keycode="73">I</div>
+                <div class="key" data-keycode="79">O</div>
+                <div class="key" data-keycode="80">P</div>
+                <div class="key" data-keycode="219">[</div>
+                <div class="key" data-keycode="221">]</div>
+                <div class="key" data-keycode="220">\</div>
+            </div>
+
+            <div class="keyboard-row">
+                <div class="key wider" data-keycode="20" data-key-name="CapsLock">Caps</div>
+                <div class="key" data-keycode="65">A</div>
+                <div class="key" data-keycode="83">S</div>
+                <div class="key" data-keycode="68">D</div>
+                <div class="key" data-keycode="70">F</div>
+                <div class="key" data-keycode="71">G</div>
+                <div class="key" data-keycode="72">H</div>
+                <div class="key" data-keycode="74">J</div>
+                <div class="key" data-keycode="75">K</div>
+                <div class="key" data-keycode="76">L</div>
+                <div class="key" data-keycode="186">;</div>
+                <div class="key" data-keycode="222">'</div>
+                <div class="key widest" data-keycode="13" data-key-name="Enter">Enter</div>
+            </div>
+
+            <div class="keyboard-row">
+                <div class="key widest" data-keycode="16" data-key-name="Shift">Shift</div>
+                <div class="key" data-keycode="90">Z</div>
+                <div class="key" data-keycode="88">X</div>
+                <div class="key" data-keycode="67">C</div>
+                <div class="key" data-keycode="86">V</div>
+                <div class="key" data-keycode="66">B</div>
+                <div class="key" data-keycode="78">N</div>
+                <div class="key" data-keycode="77">M</div>
+                <div class="key" data-keycode="188">,</div>
+                <div class="key" data-keycode="190">.</div>
+                <div class="key" data-keycode="191">/</div>
+                <div class="key widest" data-keycode="16" data-key-name="Shift">Shift</div>
+            </div>
+
+            <div class="keyboard-row">
+                <div class="key wider" data-keycode="17" data-key-name="Ctrl">Ctrl</div>
+                <div class="key wider" data-keycode="91" data-key-name="Win">Win</div>
+                <div class="key wider" data-keycode="18" data-key-name="Alt">Alt</div>
+                <div class="key space-bar" data-keycode="32" data-key-name="Space"></div>
+                <div class="key wider" data-keycode="18" data-key-name="Alt">Alt</div>
+                <div class="key wider" data-keycode="93" data-key-name="Menu">Menu</div>
+                <div class="key wider" data-keycode="17" data-key-name="Ctrl">Ctrl</div>
+            </div>
+            
+            <!-- 方向键区 -->
+            <div class="keyboard-row arrow-keys">
+                <div class="key spacer wide"></div>
+                <div class="key" data-keycode="38" data-key-name="ArrowUp">↑</div>
+                <div class="key spacer wide"></div>
+            </div>
+            <div class="keyboard-row arrow-keys">
+                <div class="key" data-keycode="37" data-key-name="ArrowLeft">←</div>
+                <div class="key" data-keycode="40" data-key-name="ArrowDown">↓</div>
+                <div class="key" data-keycode="39" data-key-name="ArrowRight">→</div>
+            </div>
+        </section>
+
+        <section class="test-results">
+            <div class="result-summary"></div>
+            <div class="result-actions">
+                <button id="save-results" class="action-button secondary">保存结果</button>
+                <button id="copy-results" class="action-button secondary">复制结果</button>
+                <button id="print-results" class="action-button secondary">打印结果</button>
+                <button id="reset-test" class="action-button warning">重置测试</button>
+            </div>
+        </section>
+
+        <section class="recommendations">
+            <h2>小贴士</h2>
+            <ul>
+                <li>请按下键盘上的每一个按键，测试其是否正常工作。</li>
+                <li>已测试的按键会变为绿色，未测试的按键为灰色。</li>
+                <li>您可以点击虚拟键盘上的按键来测试，也可以直接按您的物理键盘。</li>
+                <li>测试完成后，可以点击"保存结果"保存测试数据。</li>
+                <li>键盘测试可以帮助您发现键盘的物理损坏、按键失灵等问题。</li>
+            </ul>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <p>&copy; 2023 键盘测试工具 | <a href="#">隐私政策</a> | <a href="#">使用条款</a></p>
+    </footer>
+
+    <script src="../js/keyboard-test.js"></script>
+</body>
+</html> 

@@ -1,0 +1,349 @@
+/* 全局重置和基本样式 */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Arial', 'Microsoft YaHei', sans-serif;
+}
+
+:root {
+    --primary-color: #4a90e2;
+    --primary-dark: #3a7bc8;
+    --secondary-color: #6c757d;
+    --success-color: #28a745;
+    --warning-color: #ffc107;
+    --danger-color: #dc3545;
+    --light-color: #f8f9fa;
+    --dark-color: #343a40;
+    --untested-key: #e0e0e0;
+    --tested-key: #9eebcf;
+    --key-border: #bbb;
+    --key-shadow: rgba(0, 0, 0, 0.2);
+}
+
+body {
+    line-height: 1.6;
+    color: #333;
+    background-color: #f5f7fa;
+}
+
+/* 头部样式 */
+.header {
+    background-color: #fff;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    padding: 1rem 2rem;
+}
+
+.header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.header h1 {
+    color: var(--primary-color);
+    font-size: 1.8rem;
+}
+
+.language-selector-container select {
+    padding: 0.5rem;
+    border: 1px solid var(--key-border);
+    border-radius: 4px;
+    background-color: white;
+    font-size: 0.9rem;
+}
+
+/* 主要内容区域 */
+.main-content {
+    max-width: 1200px;
+    margin: 2rem auto;
+    padding: 0 1rem;
+}
+
+/* 测试状态区域 */
+.test-status {
+    background-color: white;
+    border-radius: 8px;
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.status-indicator {
+    display: flex;
+    align-items: center;
+}
+
+.dot {
+    width: 12px;
+    height: 12px;
+    background-color: var(--secondary-color);
+    border-radius: 50%;
+    margin-right: 8px;
+}
+
+.test-active .dot {
+    background-color: var(--success-color);
+}
+
+.status-text {
+    font-weight: 600;
+    color: var(--dark-color);
+}
+
+.progress-info {
+    font-size: 0.95rem;
+    color: var(--secondary-color);
+}
+
+.action-button {
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    padding: 0.6rem 1.2rem;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: background-color 0.2s;
+}
+
+.action-button:hover {
+    background-color: var(--primary-dark);
+}
+
+.action-button.secondary {
+    background-color: var(--secondary-color);
+}
+
+.action-button.secondary:hover {
+    background-color: #5a6268;
+}
+
+.action-button.warning {
+    background-color: var(--danger-color);
+}
+
+.action-button.warning:hover {
+    background-color: #c82333;
+}
+
+/* 按键信息区域 */
+.key-info {
+    background-color: white;
+    border-radius: 8px;
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12);
+}
+
+.info-box {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+}
+
+.info-item {
+    min-width: 200px;
+    flex: 1;
+}
+
+.info-label {
+    color: var(--secondary-color);
+    font-size: 0.9rem;
+    display: block;
+    margin-bottom: 0.3rem;
+}
+
+.info-value {
+    font-size: 1.4rem;
+    font-weight: 600;
+    color: var(--dark-color);
+}
+
+/* 键盘布局 */
+.keyboard-layout {
+    background-color: white;
+    border-radius: 8px;
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12);
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.keyboard-row {
+    display: flex;
+    gap: 0.4rem;
+}
+
+.key {
+    min-width: 50px;
+    height: 50px;
+    background-color: var(--untested-key);
+    border: 1px solid var(--key-border);
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 0.85rem;
+    user-select: none;
+    cursor: pointer;
+    box-shadow: 0 2px 4px var(--key-shadow);
+    flex: 1;
+    position: relative;
+    transition: background-color 0.2s, transform 0.1s;
+}
+
+.key:active, .key.active {
+    transform: translateY(2px);
+    box-shadow: 0 1px 2px var(--key-shadow);
+}
+
+.key.tested {
+    background-color: var(--tested-key);
+}
+
+.key.wider {
+    flex: 1.5;
+}
+
+.key.widest {
+    flex: 2.5;
+}
+
+.key.spacer {
+    background-color: transparent;
+    border: none;
+    box-shadow: none;
+    min-width: 10px;
+    flex: 0.2;
+}
+
+.key.spacer.wide {
+    flex: 1;
+}
+
+.key.accent {
+    color: var(--primary-color);
+}
+
+.function-keys {
+    margin-bottom: 1rem;
+}
+
+.space-bar {
+    flex: 6;
+    height: 50px;
+}
+
+.arrow-keys {
+    margin-top: 0.5rem;
+}
+
+/* 测试结果区域 */
+.test-results {
+    background-color: white;
+    border-radius: 8px;
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12);
+}
+
+.result-summary {
+    margin-bottom: 1rem;
+    font-size: 1.1rem;
+}
+
+.result-actions {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+/* 建议区域 */
+.recommendations {
+    background-color: white;
+    border-radius: 8px;
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12);
+}
+
+.recommendations h2 {
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+    font-size: 1.3rem;
+}
+
+.recommendations ul {
+    padding-left: 1.5rem;
+}
+
+.recommendations li {
+    margin-bottom: 0.5rem;
+}
+
+/* 页脚 */
+.footer {
+    background-color: var(--dark-color);
+    color: white;
+    text-align: center;
+    padding: 1.5rem;
+    margin-top: 2rem;
+}
+
+.footer a {
+    color: var(--light-color);
+    text-decoration: none;
+    margin: 0 0.5rem;
+}
+
+.footer a:hover {
+    text-decoration: underline;
+}
+
+/* 响应式设计 */
+@media (max-width: 900px) {
+    .key {
+        min-width: 40px;
+        height: 40px;
+        font-size: 0.75rem;
+    }
+    
+    .test-status {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1rem;
+    }
+    
+    .action-button {
+        margin-top: 0.5rem;
+    }
+}
+
+@media (max-width: 600px) {
+    .key {
+        min-width: 30px;
+        height: 30px;
+        font-size: 0.7rem;
+    }
+    
+    .header h1 {
+        font-size: 1.5rem;
+    }
+    
+    .result-actions {
+        flex-direction: column;
+    }
+    
+    .action-button {
+        width: 100%;
+    }
+} 
