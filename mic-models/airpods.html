@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Apple AirPods Microphone Test - Test Your AirPods Mic</title>
+    <meta name="description" content="Free online tool to test if your Apple AirPods microphone is working properly. Easy-to-use test for AirPods, AirPods Pro, and AirPods Max with troubleshooting tips.">
+    <link rel="canonical" href="https://devicetestpro.top/mic-models/airpods.html">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="alternate" hreflang="zh-CN" href="https://devicetestpro.top/zh/mic-models/airpods.html">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-B031Q3B9NP"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-B031Q3B9NP');
+    </script>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">
+                <h1><i class="fas fa-microphone"></i> Microphone Test Tool</h1>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="../index.html">Mic Test</a></li>
+                    <li><a href="../speaker-test.html">Speaker Test</a></li>
+                    <li><a href="../keyboard-test.html">Keyboard Test</a></li>
+                    <li><a href="../help-center.html">Help Center</a></li>
+                    <li class="language-switch"><a href="../zh/mic-models/airpods.html"><i class="fas fa-globe"></i> 中文</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <!-- 面包屑导航 -->
+        <div class="breadcrumbs container">
+            <ul>
+                <li><a href="../index.html">Home</a></li>
+                <li><a href="../mic-brands.html">Microphone Models</a></li>
+                <li>Apple AirPods Microphone Test</li>
+            </ul>
+        </div>
+
+        <section class="hero device-specific">
+            <div class="container">
+                <div class="device-info">
+                    <div class="device-image">
+                        <img src="../img/devices/airpods.jpg" alt="Apple AirPods" width="300" height="200">
+                    </div>
+                    <div class="device-details">
+                        <h2>Apple AirPods Microphone Test</h2>
+                        <p>Specifically optimized test for Apple AirPods, AirPods Pro, and AirPods Max microphones</p>
+                        <ul class="device-features">
+                            <li><i class="fas fa-check"></i> Works with all AirPods generations</li>
+                            <li><i class="fas fa-check"></i> Tests noise cancellation on AirPods Pro/Max</li>
+                            <li><i class="fas fa-check"></i> Checks beam-forming microphone quality</li>
+                        </ul>
+                        <div class="test-action">
+                            <button id="startTest" class="btn primary"><i class="fas fa-play"></i> Start AirPods Mic Test</button>
+                            <button id="stopTest" class="btn secondary" disabled><i class="fas fa-stop"></i> Stop Test</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 连接指南 -->
+        <section class="connection-guide">
+            <div class="container">
+                <h3>How to Connect Your AirPods for Testing</h3>
+                <div class="step-guide">
+                    <div class="step">
+                        <div class="step-number">1</div>
+                        <div class="step-content">
+                            <h4>Bluetooth Connection</h4>
+                            <p>Make sure your AirPods are connected to your device via Bluetooth. Open your Bluetooth settings to confirm connection.</p>
+                        </div>
+                    </div>
+                    <div class="step">
+                        <div class="step-number">2</div>
+                        <div class="step-content">
+                            <h4>Browser Permissions</h4>
+                            <p>When you click "Start AirPods Mic Test," allow microphone access in your browser when prompted.</p>
+                        </div>
+                    </div>
+                    <div class="step">
+                        <div class="step-number">3</div>
+                        <div class="step-content">
+                            <h4>Select Input Device</h4>
+                            <p>If your browser shows an input selection dropdown, make sure "AirPods" or "Headset" is selected.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="test-area">
+            <div class="container">
+                <div class="test-status">
+                    <div id="connectionStatus" class="status-box">
+                        <h3>Connection Status</h3>
+                        <div class="status-indicator" id="micStatus">
+                            <span class="dot waiting"></span>
+                            <span class="status-text">Waiting to start test...</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="test-visualization">
+                    <div class="visual-area">
+                        <h3>Audio Visualization</h3>
+                        <div class="visualizer-container">
+                            <canvas id="audioVisualizer" width="600" height="200"></canvas>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="test-metrics">
+                    <div class="metric-box">
+                        <h3>Volume Level</h3>
+                        <div class="meter-container">
+                            <div class="meter">
+                                <div id="volumeMeter" class="meter-fill"></div>
+                            </div>
+                            <div id="volumeValue" class="meter-value">0 dB</div>
+                        </div>
+                    </div>
+                    
+                    <div class="metric-box">
+                        <h3>Frequency Analysis</h3>
+                        <canvas id="frequencyVisualizer" width="300" height="150"></canvas>
+                    </div>
+                </div>
+                
+                <div class="test-results" id="resultArea" style="display: none;">
+                    <h3>Test Results</h3>
+                    <div class="result-container">
+                        <div id="testResults" class="result-details"></div>
+                    </div>
+                    <div class="result-actions">
+                        <button id="saveResults" class="btn secondary"><i class="fas fa-save"></i> Save Results</button>
+                        <button id="shareResults" class="btn secondary"><i class="fas fa-share-alt"></i> Share Results</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section class="airpods-specific-issues">
+            <div class="container">
+                <h2>Common AirPods Microphone Issues & Solutions</h2>
+                <div class="faq-grid">
+                    <div class="faq-item">
+                        <h3><i class="fas fa-volume-mute"></i> One Microphone Not Working</h3>
+                        <p>AirPods have microphones in both earbuds. If one side isn't working, try putting that AirPod back in the case and taking it out again.</p>
+                    </div>
+                    <div class="faq-item">
+                        <h3><i class="fas fa-volume-down"></i> Microphone Too Quiet</h3>
+                        <p>Check if your AirPods are clean. Debris can block the microphone openings. Gently clean with a soft, dry cloth or a small brush.</p>
+                    </div>
+                    <div class="faq-item">
+                        <h3><i class="fas fa-bolt"></i> Cutting Out During Calls</h3>
+                        <p>This could be a Bluetooth interference issue. Try moving away from other electronic devices or Wi-Fi routers.</p>
+                    </div>
+                    <div class="faq-item">
+                        <h3><i class="fas fa-wind"></i> Too Much Background Noise</h3>
+                        <p>AirPods Pro and Max have noise cancellation for audio in, but all models use beam-forming mics. Stay in quieter environments for best results.</p>
+                    </div>
+                </div>
+
+                <div class="additional-tips">
+                    <h3>AirPods Microphone Tips</h3>
+                    <ul class="tips-list">
+                        <li><strong>Battery Level Matters:</strong> Low battery can affect microphone performance. Make sure your AirPods are charged.</li>
+                        <li><strong>iOS Settings:</strong> On iPhone, go to Settings > Bluetooth > [i] next to AirPods to access additional microphone settings.</li>
+                        <li><strong>Firmware Updates:</strong> Make sure your AirPods have the latest firmware by keeping them connected to your iOS device regularly.</li>
+                        <li><strong>Reset if Necessary:</strong> If problems persist, try resetting your AirPods by pressing and holding the button on the back of the case.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section class="compatibility">
+            <div class="container">
+                <h2>Compatibility Information</h2>
+                <div class="compatibility-grid">
+                    <div class="compatibility-item">
+                        <h3>AirPods Models Supported</h3>
+                        <ul>
+                            <li>AirPods (1st Generation)</li>
+                            <li>AirPods (2nd Generation)</li>
+                            <li>AirPods (3rd Generation)</li>
+                            <li>AirPods Pro</li>
+                            <li>AirPods Pro (2nd Generation)</li>
+                            <li>AirPods Max</li>
+                        </ul>
+                    </div>
+                    <div class="compatibility-item">
+                        <h3>Operating Systems</h3>
+                        <ul>
+                            <li>iOS/iPadOS 10 or later</li>
+                            <li>macOS Sierra or later</li>
+                            <li>Windows 10 or later</li>
+                            <li>Android 5.0 or later</li>
+                        </ul>
+                    </div>
+                    <div class="compatibility-item">
+                        <h3>Browser Support</h3>
+                        <ul>
+                            <li>Chrome 55+</li>
+                            <li>Firefox 53+</li>
+                            <li>Safari 11+</li>
+                            <li>Edge 79+</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="related-models">
+            <div class="container">
+                <h2>Other Microphone Tests</h2>
+                <div class="related-models-grid">
+                    <a href="blue-yeti.html" class="model-card">
+                        <img src="../img/devices/blue-yeti.jpg" alt="Blue Yeti Microphone">
+                        <h3>Blue Yeti Microphone Test</h3>
+                    </a>
+                    <a href="hyperx.html" class="model-card">
+                        <img src="../img/devices/hyperx.jpg" alt="HyperX Gaming Headset">
+                        <h3>HyperX Headset Mic Test</h3>
+                    </a>
+                    <a href="logitech.html" class="model-card">
+                        <img src="../img/devices/logitech.jpg" alt="Logitech Webcam">
+                        <h3>Logitech Webcam Mic Test</h3>
+                    </a>
+                    <a href="../mic-brands.html" class="model-card view-all">
+                        <div class="view-all-content">
+                            <i class="fas fa-microphone-alt"></i>
+                            <h3>View All Device Tests</h3>
+                            <p>Find tests for more microphone models</p>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <h2><i class="fas fa-microphone"></i> Microphone Test Tool</h2>
+                    <p>Simple, fast, and accurate audio device testing</p>
+                </div>
+                <div class="footer-links">
+                    <div class="link-group">
+                        <h3>Tools</h3>
+                        <ul>
+                            <li><a href="../index.html">Microphone Test</a></li>
+                            <li><a href="../speaker-test.html">Speaker Test</a></li>
+                            <li><a href="../keyboard-test.html">Keyboard Test</a></li>
+                            <li><a href="../headphone-test.html">Headphone Test</a></li>
+                            <li><a href="../webcam-test.html">Webcam Test</a></li>
+                        </ul>
+                    </div>
+                    <div class="link-group">
+                        <h3>Resources</h3>
+                        <ul>
+                            <li><a href="../mic-brands.html">Microphone Brands</a></li>
+                            <li><a href="../help-center.html">Troubleshooting</a></li>
+                            <li><a href="../guide/best-microphones.html">Best Microphones Guide</a></li>
+                            <li><a href="../blog/">Audio Test Blog</a></li>
+                        </ul>
+                    </div>
+                    <div class="link-group">
+                        <h3>About</h3>
+                        <ul>
+                            <li><a href="../about.html">About Us</a></li>
+                            <li><a href="../privacy-policy.html">Privacy Policy</a></li>
+                            <li><a href="../terms.html">Terms of Use</a></li>
+                            <li><a href="../contact.html">Contact Us</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2023 Microphone Test Tool. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../js/app.js"></script>
+</body>
+</html> 
