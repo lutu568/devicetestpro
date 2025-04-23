@@ -3,12 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>麦克风测试工具 - 在线检测您的麦克风是否正常工作</title>
-    <meta name="description" content="免费在线麦克风测试工具，轻松检测您的麦克风是否正常工作，并提供详细的音频分析和问题解决建议。">
-    <link rel="canonical" href="https://microphone-test-tool.com/zh/">
+    <title>麦克风测试工具 - 在线麦克风检测</title>
+    <meta name="description" content="免费在线麦克风测试工具，轻松检查您的麦克风是否正常工作，提供详细的音频分析和故障排除建议。">
+    <link rel="canonical" href="https://devicetestpro.top/zh/">
     <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="alternate" hreflang="en" href="https://microphone-test-tool.com/">
+    <link rel="alternate" hreflang="en" href="https://devicetestpro.top/">
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
     <!-- Google tag (gtag.js) -->
@@ -40,10 +40,18 @@
     </header>
 
     <main>
+        <!-- 面包屑导航 -->
+        <div class="breadcrumbs container">
+            <ul>
+                <li><a href="index.html">首页</a></li>
+                <li>麦克风测试</li>
+            </ul>
+        </div>
+
         <section class="hero">
             <div class="container">
                 <h2>快速测试您的麦克风</h2>
-                <p>使用我们的在线工具，只需点击下方按钮即可检测您的麦克风是否正常工作</p>
+                <p>使用我们的在线工具，快速检查您的麦克风是否正常工作</p>
                 <div class="test-action">
                     <button id="startTest" class="btn primary"><i class="fas fa-play"></i> 开始测试</button>
                     <button id="stopTest" class="btn secondary" disabled><i class="fas fa-stop"></i> 停止测试</button>
@@ -74,7 +82,7 @@
 
                 <div class="test-metrics">
                     <div class="metric-box">
-                        <h3>音量级别</h3>
+                        <h3>音量水平</h3>
                         <div class="meter-container">
                             <div class="meter">
                                 <div id="volumeMeter" class="meter-fill"></div>
@@ -98,6 +106,24 @@
                         <button id="saveResults" class="btn secondary"><i class="fas fa-save"></i> 保存结果</button>
                         <button id="shareResults" class="btn secondary"><i class="fas fa-share-alt"></i> 分享结果</button>
                     </div>
+
+                    <div class="related-tests">
+                        <h4>完成您的音频设备检查</h4>
+                        <div class="related-links">
+                            <a href="speaker-test.html" class="related-link">
+                                <i class="fas fa-volume-up"></i>
+                                <span>测试您的扬声器</span>
+                            </a>
+                            <a href="headphone-test.html" class="related-link">
+                                <i class="fas fa-headphones"></i>
+                                <span>耳机测试</span>
+                            </a>
+                            <a href="mic-models/gaming-microphones.html" class="related-link">
+                                <i class="fas fa-gamepad"></i>
+                                <span>游戏麦克风测试</span>
+                            </a>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
@@ -109,24 +135,66 @@
                     <div class="faq-item">
                         <h3><i class="fas fa-volume-mute"></i> 没有声音信号</h3>
                         <p>检查您的麦克风是否正确连接，并确保您已在浏览器和系统设置中授予麦克风访问权限。</p>
+                        <a href="help-center.html#no-signal" class="learn-more">了解更多解决方案</a>
                     </div>
                     <div class="faq-item">
                         <h3><i class="fas fa-volume-down"></i> 音量过低</h3>
-                        <p>调整系统音量设置，确保麦克风增益设置适当，或尝试将麦克风靠近声源。</p>
+                        <p>调整您的系统音量设置，确保麦克风增益设置适当，或尝试将麦克风移近声源。</p>
+                        <a href="help-center.html#low-volume" class="learn-more">了解更多解决方案</a>
                     </div>
                     <div class="faq-item">
                         <h3><i class="fas fa-bolt"></i> 声音断断续续</h3>
-                        <p>检查USB连接是否稳定，确保没有后台程序占用过多系统资源，或尝试更新音频驱动程序。</p>
+                        <p>检查您的USB连接是否稳定，确保没有后台程序使用过多系统资源，或尝试更新您的音频驱动程序。</p>
+                        <a href="help-center.html#intermittent" class="learn-more">了解更多解决方案</a>
                     </div>
                     <div class="faq-item">
-                        <h3><i class="fas fa-wind"></i> 有背景噪音</h3>
-                        <p>尝试在安静的环境中使用麦克风，或考虑使用具有降噪功能的麦克风。</p>
+                        <h3><i class="fas fa-wind"></i> 背景噪音</h3>
+                        <p>尝试在安静的环境中使用麦克风，或考虑使用带有降噪功能的麦克风。</p>
+                        <a href="help-center.html#noise" class="learn-more">了解更多解决方案</a>
                     </div>
                 </div>
+
+                <div class="popular-devices">
+                    <h3>按设备热门麦克风测试</h3>
+                    <div class="device-links">
+                        <a href="mic-models/blue-yeti.html" class="device-link">Blue Yeti麦克风测试</a>
+                        <a href="mic-models/airpods.html" class="device-link">苹果AirPods麦克风测试</a>
+                        <a href="mic-models/hyperx.html" class="device-link">HyperX游戏耳机麦克风测试</a>
+                        <a href="mic-models/logitech.html" class="device-link">罗技摄像头麦克风测试</a>
+                        <a href="mic-brands.html" class="device-link">查看所有设备测试 <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+
                 <div class="cta-box">
-                    <h3>需要更专业的麦克风测试?</h3>
+                    <h3>需要更专业的麦克风测试？</h3>
                     <p>尝试我们的高级测试工具，获取更详细的音频分析和专业建议</p>
                     <button class="btn primary" id="upgradeCta"><i class="fas fa-arrow-circle-up"></i> 升级到专业版</button>
+                </div>
+            </div>
+        </section>
+
+        <section class="use-cases">
+            <div class="container">
+                <h2>不同需求的麦克风测试</h2>
+                <div class="use-case-grid">
+                    <div class="use-case-item">
+                        <i class="fas fa-video"></i>
+                        <h3>视频会议</h3>
+                        <p>在重要会议或面试前确保您的麦克风正常工作。</p>
+                        <a href="use-cases/conferencing.html">视频会议测试</a>
+                    </div>
+                    <div class="use-case-item">
+                        <i class="fas fa-gamepad"></i>
+                        <h3>游戏与直播</h3>
+                        <p>确保与队友和观众的清晰沟通。</p>
+                        <a href="use-cases/gaming.html">游戏测试</a>
+                    </div>
+                    <div class="use-case-item">
+                        <i class="fas fa-music"></i>
+                        <h3>音频录制</h3>
+                        <p>检查用于播客、音乐录制或内容创作的麦克风质量。</p>
+                        <a href="use-cases/recording.html">录制测试</a>
+                    </div>
                 </div>
             </div>
         </section>
@@ -137,7 +205,7 @@
             <div class="footer-content">
                 <div class="footer-logo">
                     <h2><i class="fas fa-microphone"></i> 麦克风测试工具</h2>
-                    <p>简单、快速、准确地测试您的音频设备</p>
+                    <p>简单、快速、准确的音频设备测试</p>
                 </div>
                 <div class="footer-links">
                     <div class="link-group">
@@ -145,31 +213,33 @@
                         <ul>
                             <li><a href="index.html">麦克风测试</a></li>
                             <li><a href="speaker-test.html">扬声器测试</a></li>
-                            <li><a href="camera-test.html">摄像头测试</a></li>
-                            <li><a href="#">网络测速</a></li>
+                            <li><a href="keyboard-test.html">键盘测试</a></li>
+                            <li><a href="headphone-test.html">耳机测试</a></li>
+                            <li><a href="webcam-test.html">摄像头测试</a></li>
                         </ul>
                     </div>
                     <div class="link-group">
                         <h3>资源</h3>
                         <ul>
-                            <li><a href="#">设备指南</a></li>
-                            <li><a href="#">故障排除</a></li>
-                            <li><a href="#">设备推荐</a></li>
+                            <li><a href="mic-brands.html">麦克风品牌</a></li>
+                            <li><a href="help-center.html">故障排除</a></li>
+                            <li><a href="guide/best-microphones.html">最佳麦克风指南</a></li>
+                            <li><a href="blog/">音频测试博客</a></li>
                         </ul>
                     </div>
                     <div class="link-group">
                         <h3>关于</h3>
                         <ul>
-                            <li><a href="#">关于我们</a></li>
+                            <li><a href="about.html">关于我们</a></li>
                             <li><a href="privacy-policy.html">隐私政策</a></li>
-                            <li><a href="#">使用条款</a></li>
-                            <li><a href="#">联系我们</a></li>
+                            <li><a href="terms.html">使用条款</a></li>
+                            <li><a href="contact.html">联系我们</a></li>
                         </ul>
                     </div>
                 </div>
             </div>
             <div class="copyright">
-                <p>&copy; 2023 麦克风测试工具. 保留所有权利。</p>
+                <p>&copy; 2023 麦克风测试工具。保留所有权利。</p>
             </div>
         </div>
     </footer>

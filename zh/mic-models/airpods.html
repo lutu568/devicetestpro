@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>苹果AirPods麦克风测试 - 测试您的AirPods麦克风</title>
+    <meta name="description" content="免费在线工具，检测您的苹果AirPods麦克风是否正常工作。为AirPods、AirPods Pro和AirPods Max提供易用的测试和故障排除提示。">
+    <link rel="canonical" href="https://devicetestpro.top/zh/mic-models/airpods.html">
+    <link rel="stylesheet" href="../../css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="alternate" hreflang="en" href="https://devicetestpro.top/mic-models/airpods.html">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-B031Q3B9NP"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-B031Q3B9NP');
+    </script>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">
+                <h1><i class="fas fa-microphone"></i> 麦克风测试工具</h1>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="../index.html">麦克风测试</a></li>
+                    <li><a href="../speaker-test.html">扬声器测试</a></li>
+                    <li><a href="../keyboard-test.html">键盘测试</a></li>
+                    <li><a href="../help-center.html">帮助中心</a></li>
+                    <li class="language-switch"><a href="../../mic-models/airpods.html"><i class="fas fa-globe"></i> English</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <!-- 面包屑导航 -->
+        <div class="breadcrumbs container">
+            <ul>
+                <li><a href="../index.html">首页</a></li>
+                <li><a href="../mic-brands.html">麦克风型号</a></li>
+                <li>苹果AirPods麦克风测试</li>
+            </ul>
+        </div>
+
+        <section class="hero device-specific">
+            <div class="container">
+                <div class="device-info">
+                    <div class="device-image">
+                        <img src="../../img/devices/airpods.jpg" alt="苹果AirPods" width="300" height="200">
+                    </div>
+                    <div class="device-details">
+                        <h2>苹果AirPods麦克风测试</h2>
+                        <p>专为苹果AirPods、AirPods Pro和AirPods Max麦克风优化的测试</p>
+                        <ul class="device-features">
+                            <li><i class="fas fa-check"></i> 适用于所有AirPods世代</li>
+                            <li><i class="fas fa-check"></i> 测试AirPods Pro/Max的降噪功能</li>
+                            <li><i class="fas fa-check"></i> 检查波束成形麦克风质量</li>
+                        </ul>
+                        <div class="test-action">
+                            <button id="startTest" class="btn primary"><i class="fas fa-play"></i> 开始AirPods麦克风测试</button>
+                            <button id="stopTest" class="btn secondary" disabled><i class="fas fa-stop"></i> 停止测试</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 连接指南 -->
+        <section class="connection-guide">
+            <div class="container">
+                <h3>如何连接您的AirPods进行测试</h3>
+                <div class="step-guide">
+                    <div class="step">
+                        <div class="step-number">1</div>
+                        <div class="step-content">
+                            <h4>蓝牙连接</h4>
+                            <p>确保您的AirPods通过蓝牙连接到您的设备。打开蓝牙设置确认连接状态。</p>
+                        </div>
+                    </div>
+                    <div class="step">
+                        <div class="step-number">2</div>
+                        <div class="step-content">
+                            <h4>浏览器权限</h4>
+                            <p>当您点击"开始AirPods麦克风测试"时，请允许浏览器访问麦克风。</p>
+                        </div>
+                    </div>
+                    <div class="step">
+                        <div class="step-number">3</div>
+                        <div class="step-content">
+                            <h4>选择输入设备</h4>
+                            <p>如果浏览器显示输入选择下拉框，请确保选择"AirPods"或"耳机"。</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="test-area">
+            <div class="container">
+                <div class="test-status">
+                    <div id="connectionStatus" class="status-box">
+                        <h3>连接状态</h3>
+                        <div class="status-indicator" id="micStatus">
+                            <span class="dot waiting"></span>
+                            <span class="status-text">等待开始测试...</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="test-visualization">
+                    <div class="visual-area">
+                        <h3>音频可视化</h3>
+                        <div class="visualizer-container">
+                            <canvas id="audioVisualizer" width="600" height="200"></canvas>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="test-metrics">
+                    <div class="metric-box">
+                        <h3>音量水平</h3>
+                        <div class="meter-container">
+                            <div class="meter">
+                                <div id="volumeMeter" class="meter-fill"></div>
+                            </div>
+                            <div id="volumeValue" class="meter-value">0 dB</div>
+                        </div>
+                    </div>
+                    
+                    <div class="metric-box">
+                        <h3>频率分析</h3>
+                        <canvas id="frequencyVisualizer" width="300" height="150"></canvas>
+                    </div>
+                </div>
+                
+                <div class="test-results" id="resultArea" style="display: none;">
+                    <h3>测试结果</h3>
+                    <div class="result-container">
+                        <div id="testResults" class="result-details"></div>
+                    </div>
+                    <div class="result-actions">
+                        <button id="saveResults" class="btn secondary"><i class="fas fa-save"></i> 保存结果</button>
+                        <button id="shareResults" class="btn secondary"><i class="fas fa-share-alt"></i> 分享结果</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section class="airpods-specific-issues">
+            <div class="container">
+                <h2>常见AirPods麦克风问题与解决方案</h2>
+                <div class="faq-grid">
+                    <div class="faq-item">
+                        <h3><i class="fas fa-volume-mute"></i> 一侧麦克风不工作</h3>
+                        <p>AirPods在两个耳塞中都有麦克风。如果一侧不工作，尝试将该AirPod放回充电盒再取出。</p>
+                    </div>
+                    <div class="faq-item">
+                        <h3><i class="fas fa-volume-down"></i> 麦克风音量太小</h3>
+                        <p>检查您的AirPods是否干净。灰尘可能会堵塞麦克风开口。用柔软的干布或小刷子轻轻清洁。</p>
+                    </div>
+                    <div class="faq-item">
+                        <h3><i class="fas fa-bolt"></i> 通话时声音断断续续</h3>
+                        <p>这可能是蓝牙干扰问题。尝试远离其他电子设备或Wi-Fi路由器。</p>
+                    </div>
+                    <div class="faq-item">
+                        <h3><i class="fas fa-wind"></i> 背景噪音太大</h3>
+                        <p>AirPods Pro和Max具有音频输入降噪功能，但所有型号都使用波束成形麦克风。在更安静的环境中获得最佳效果。</p>
+                    </div>
+                </div>
+
+                <div class="additional-tips">
+                    <h3>AirPods麦克风使用技巧</h3>
+                    <ul class="tips-list">
+                        <li><strong>电池电量很重要：</strong> 低电量会影响麦克风性能。确保您的AirPods已充电。</li>
+                        <li><strong>iOS设置：</strong> 在iPhone上，前往设置 > 蓝牙 > AirPods旁边的[i]图标以访问额外的麦克风设置。</li>
+                        <li><strong>固件更新：</strong> 通过定期将AirPods连接到iOS设备，确保AirPods拥有最新固件。</li>
+                        <li><strong>必要时重置：</strong> 如果问题持续存在，尝试通过按住充电盒背面的按钮重置AirPods。</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section class="compatibility">
+            <div class="container">
+                <h2>兼容性信息</h2>
+                <div class="compatibility-grid">
+                    <div class="compatibility-item">
+                        <h3>支持的AirPods型号</h3>
+                        <ul>
+                            <li>AirPods (第1代)</li>
+                            <li>AirPods (第2代)</li>
+                            <li>AirPods (第3代)</li>
+                            <li>AirPods Pro</li>
+                            <li>AirPods Pro (第2代)</li>
+                            <li>AirPods Max</li>
+                        </ul>
+                    </div>
+                    <div class="compatibility-item">
+                        <h3>操作系统</h3>
+                        <ul>
+                            <li>iOS/iPadOS 10或更高版本</li>
+                            <li>macOS Sierra或更高版本</li>
+                            <li>Windows 10或更高版本</li>
+                            <li>Android 5.0或更高版本</li>
+                        </ul>
+                    </div>
+                    <div class="compatibility-item">
+                        <h3>浏览器支持</h3>
+                        <ul>
+                            <li>Chrome 55+</li>
+                            <li>Firefox 53+</li>
+                            <li>Safari 11+</li>
+                            <li>Edge 79+</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="related-models">
+            <div class="container">
+                <h2>其他麦克风测试</h2>
+                <div class="related-models-grid">
+                    <a href="blue-yeti.html" class="model-card">
+                        <img src="../../img/devices/blue-yeti.jpg" alt="Blue Yeti麦克风">
+                        <h3>Blue Yeti麦克风测试</h3>
+                    </a>
+                    <a href="hyperx.html" class="model-card">
+                        <img src="../../img/devices/hyperx.jpg" alt="HyperX游戏耳机">
+                        <h3>HyperX耳机麦克风测试</h3>
+                    </a>
+                    <a href="logitech.html" class="model-card">
+                        <img src="../../img/devices/logitech.jpg" alt="罗技摄像头">
+                        <h3>罗技摄像头麦克风测试</h3>
+                    </a>
+                    <a href="../mic-brands.html" class="model-card view-all">
+                        <div class="view-all-content">
+                            <i class="fas fa-microphone-alt"></i>
+                            <h3>查看所有设备测试</h3>
+                            <p>查找更多麦克风型号的测试</p>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <h2><i class="fas fa-microphone"></i> 麦克风测试工具</h2>
+                    <p>简单、快速、准确的音频设备测试</p>
+                </div>
+                <div class="footer-links">
+                    <div class="link-group">
+                        <h3>工具</h3>
+                        <ul>
+                            <li><a href="../index.html">麦克风测试</a></li>
+                            <li><a href="../speaker-test.html">扬声器测试</a></li>
+                            <li><a href="../keyboard-test.html">键盘测试</a></li>
+                            <li><a href="../headphone-test.html">耳机测试</a></li>
+                            <li><a href="../webcam-test.html">摄像头测试</a></li>
+                        </ul>
+                    </div>
+                    <div class="link-group">
+                        <h3>资源</h3>
+                        <ul>
+                            <li><a href="../mic-brands.html">麦克风品牌</a></li>
+                            <li><a href="../help-center.html">故障排除</a></li>
+                            <li><a href="../guide/best-microphones.html">最佳麦克风指南</a></li>
+                            <li><a href="../blog/">音频测试博客</a></li>
+                        </ul>
+                    </div>
+                    <div class="link-group">
+                        <h3>关于</h3>
+                        <ul>
+                            <li><a href="../about.html">关于我们</a></li>
+                            <li><a href="../privacy-policy.html">隐私政策</a></li>
+                            <li><a href="../terms.html">使用条款</a></li>
+                            <li><a href="../contact.html">联系我们</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2023 麦克风测试工具。保留所有权利。</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../../js/app.js"></script>
+</body>
+</html> 
